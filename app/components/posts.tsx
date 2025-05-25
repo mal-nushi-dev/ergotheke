@@ -9,8 +9,7 @@ import { fetchBlogFeed } from 'app/blog/rss-client'
  *
  * @returns {JSX.Element} A rendered list of blog posts or a fallback message.
  */
-export default async function BlogPosts() {
-
+export default async function BlogPosts(): Promise<JSX.Element> {
   // Explicitly type the posts variables to match `fetchBlogFeed's` return type
   let posts: Awaited<ReturnType<typeof fetchBlogFeed>> = []
 

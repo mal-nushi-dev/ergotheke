@@ -4,7 +4,7 @@ const navItems = {
   '/': {
     name: 'home',
   },
-  'https://www.kodikion.com': {
+  '/blog': {
     name: 'blog',
   }
 }

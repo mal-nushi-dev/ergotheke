@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { fetchBlogFeed } from 'app/blog/rss-client'
 
 // Server component that fetches and displays blog posts from an external RSS feed

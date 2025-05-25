@@ -12,8 +12,27 @@ export type BlogPost = {
 // Create a new RSS parser instance, typed to expect BlogPost items
 const parser: Parser<{}, BlogPost> = new Parser();
 
-// Async function to fetch and parse the external RSS feed
+/**
+ * Fetches and parses blog posts from the external Kodikion RSS feed.
+ *
+ * Uses `rss-parser` to retrieve and parse the feed at https://www.kodikion.com/rss.xml.
+ * Each feed item is normalized to ensure a `date` field is present, falling back to `pubDate` if needed.
+ * If an error occurs during fetch or parsing, the function logs the error and returns an empty array.
+ *
+ * @returns {Promise<BlogPost[]>} A promise that resolves to a list of blog posts.
+ */
 export async function fetchBlogFeed(): Promise<BlogPost[]> {
-  const feed = await parser.parseURL('https://www.kodikion.com/rss.xml');
-  return feed.items;
+  try {
+    const feed = await parser.parseURL('https://www.kodikion.com/rss.xml');
+
+    const items = feed.items.map((item) => ({
+      ...item,
+      date: item.date || item.pubDate || '',
+    }))
+
+    return items;
+  } catch (error) {
+    console.error('Failed to fetch RSS feed:', error);
+    return [];
+  }
 }

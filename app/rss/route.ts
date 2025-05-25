@@ -1,12 +1,12 @@
 import { baseUrl } from 'app/sitemap'
-import { getBlogPosts } from 'app/blog/utils'
+import { fetchBlogFeed } from 'app/blog/rss-client'
 
 export async function GET() {
-  let allBlogs = await getBlogPosts()
+  let allBlogs = await fetchBlogFeed()
 
   const itemsXml = allBlogs
     .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+      if (new Date(a.date) > new Date(b.date)) {
         return -1
       }
       return 1
@@ -14,12 +14,10 @@ export async function GET() {
     .map(
       (post) =>
         `<item>
-          <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
-          <pubDate>${new Date(
-            post.metadata.publishedAt
-          ).toUTCString()}</pubDate>
+          <title>${post.title}</title>
+          <link>${post.link}</link>
+          <description>${post.contentSnippet || ''}</description>
+          <pubDate>${new Date(post.date).toUTCString()}</pubDate>
         </item>`
     )
     .join('\n')

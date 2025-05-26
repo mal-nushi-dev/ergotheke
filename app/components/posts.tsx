@@ -15,7 +15,7 @@ export default async function BlogPosts(): Promise<JSX.Element> {
 
   try {
     posts = await fetchBlogFeed()
-    posts.forEach((p) => console.log('Post date:', p.date))
+    // posts.forEach((p) => console.log('Post date:', p.date))
   } catch (error) {
     console.error('Failed to fetch blog feed:', error)
   }

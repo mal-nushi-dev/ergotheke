@@ -8,18 +8,21 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 
+const siteTitle = 'Mal Nushi'
+const siteDescription = 'Mal Nushis Personal Website'
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Mal Nushi',
-    template: '%s',
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
   },
-  description: 'Mal Nushi || Personal Website',
+  description: siteDescription,
   openGraph: {
-    title: 'Mal Nushi',
-    description: 'Mal Nushi || Personal Website',
+    title: siteTitle,
+    description: siteDescription,
     url: baseUrl,
-    siteName: 'Mal Nushi',
+    siteName: siteTitle,
     locale: 'en_US',
     type: 'website',
   },

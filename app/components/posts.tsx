@@ -34,8 +34,8 @@ export default async function BlogPosts(): Promise<JSX.Element> {
             rel="noopener noreferrer"
             className="block mb-4"
           >
-            <div className="flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
+            <div className="flex flex-col md:flex-row md:items-baseline space-x-0 md:space-x-2">
+              <p className="text-neutral-600 dark:text-neutral-400 min-w-[100px] flex-shrink-0 tabular-nums">
                 {new Date(post.date).toLocaleDateString()}
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">

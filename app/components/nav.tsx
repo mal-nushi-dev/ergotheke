@@ -4,7 +4,8 @@ const navItems = {
   '/': {name: 'home',},
   '/about': {name: 'about',},
   '/lab': {name: 'lab',},
-  '/blog': {name: 'blog',}
+  '/blog': {name: 'blog',},
+  '/sidequests': {name: 'sidequests',},
 }
 
 export function Navbar() {

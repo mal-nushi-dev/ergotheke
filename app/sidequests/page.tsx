@@ -25,7 +25,7 @@ export default function SidequestsPage() {
         {sidequests.map((item) => (
           <li key={item.name}>
             <Link href={`/sidequests/${item.slug}`}>
-              <div className="bg-white rounded-xl shadow flex flex-col items-center justify-center p-3 text-center hover:bg-blue-50 transition cursor-pointer">
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow flex flex-col items-center justify-center p-3 text-center hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer">
                 <span
                   role="img"
                   aria-label={item.name}

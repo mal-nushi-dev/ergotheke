@@ -1,9 +1,17 @@
 import { ImageResponse } from 'next/og'
 
-export function GET(request: Request) {
+/**
+ * Handles GET requests to generate a dynamic Open Graph image.
+ * The image displays a title, which can be customized via the 'title' query parameter.
+ *
+ * @param request - The incoming HTTP request object.
+ * @returns {ImageResponse} A dynamically generated image for Open Graph/social sharing.
+ */
+export function GET(request: Request): ImageResponse {
   let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'Next.js Portfolio Starter'
+  let title = url.searchParams.get('title') || 'Mal Nushi'
 
+  // Return a dynamically generated image with the specified title
   return new ImageResponse(
     (
       <div tw="flex flex-col w-full h-full items-center justify-center bg-white">

@@ -1,11 +1,20 @@
 import BlogPosts from 'app/components/posts'
+import { Metadata } from 'next'
 
-export const metadata = {
+/**
+ * Metadata for the blog page.
+ */
+export const metadata: Metadata = {
   title: 'Kodikion.',
   description: 'A blog by Mal Nushi—where ideas wander from circuits to sentences.',
 }
 
-export default function Page() {
+/**
+ * Blog page component.
+ *
+ * @returns {JSX.Element} The rendered blog page.
+ */
+export default function Page(): JSX.Element {
   return (
     <section>
             <h1 className="font-semibold text-2xl mb-2 tracking-tighter">Kodikion.</h1>

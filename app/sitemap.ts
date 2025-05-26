@@ -22,8 +22,8 @@ export default async function sitemap(): Promise<Array<{ url: string; lastModifi
     lastModified: new Date(post.date).toISOString().split('T')[0],
   }))
   
-  // Define static routes (home, blog listing, about)
-  const routes = ['', '/blog', '/about'].map((route) => ({
+  // Define static routes
+  const routes = ['', '/blog', '/about', '/lab'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))

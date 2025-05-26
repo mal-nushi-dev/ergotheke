@@ -19,7 +19,7 @@ export default function LabPage() {
                 href={repo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline font-medium"
+                className="text-blue-700 dark:text-blue-500 hover:underline font-medium"
               >
                 {repo.name}
               </a>
@@ -34,7 +34,7 @@ export default function LabPage() {
                 ))}
               </div>
             </div>
-            <p className="text-sm text-gray-600">{repo.description}</p>
+            <p className="text-sm text-neutral-600 dark:text-neutral-300">{repo.description}</p>
           </li>
         ))}
       </ul>

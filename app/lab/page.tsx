@@ -1,16 +1,20 @@
 import { repositories } from './repositories'
 import { languageColors } from './languageColors'
+import TypingEffect from '../components/TypingEffect'
 
 export const metadata = {
   title: 'Lab',
-  description: 'Mal Nushis Lab',
+  description: 'Where Good Ideas Go to Get Debugged',
 }
 
 export default function LabPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">Lab</h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">Where Good Ideas Go to Get Debugged</h2>
+      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">{metadata.title}</h1>
+      <h2 
+        className="font-semibold text-lg mb-8 tracking-tight">{metadata.description.split('Debugged')[0]}
+        <TypingEffect text="Debugged"/>
+      </h2>
       <ul className="space-y-4">
         {repositories.map((repo) => (
           <li key={repo.url}>

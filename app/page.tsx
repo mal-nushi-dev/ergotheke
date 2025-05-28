@@ -8,7 +8,7 @@ export default function Page() {
         Mal Nushi
       </h1>
       <p className="mb-4">
-        <TypingEffect text="$whoami" />
+        <TypingEffect text="$whoami"/>
         <br />
         A software engineer at Ally Financial, crafting resilient data systems that power
         strategic decisions and streamline operations. Curious by nature,

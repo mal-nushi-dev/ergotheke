@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import TypingEffect from '../components/TypingEffect'
 
 export const metadata = {
   title: 'Sidequests',
@@ -19,8 +20,8 @@ const sidequests = [
 export default function SidequestsPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">Sidequests</h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">Because not everything has to compile</h2>
+      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">{metadata.title}</h1>
+      <h2 className="font-semibold text-lg mb-8 tracking-tight">{metadata.description.split('compile')[0]}<TypingEffect text="compile"/></h2>
       <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {sidequests.map((item) => (
           <li key={item.name}>

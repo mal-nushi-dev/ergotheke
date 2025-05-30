@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-// Define your skating subpages
 const skatingGearSubpages = [
   { name: 'The Original GRLSWIRL x Carver Surfskate', slug: 'grlswirl_x_carver', description: 'My very first surfskate and my daily rider.' },
   { name: 'Penny Ocean Mist 22" Penny Board', slug: 'pennyboard_ocean_mist', description: 'Bought this bad boy for traveling. Never once took it for traveling.' },

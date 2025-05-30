@@ -1,0 +1,17 @@
+export const skatingSpots = [
+  { name: 'Unity Skate Park (Northville)', href: 'https://maps.app.goo.gl/936HbHLVFFrgRhRT7', state: 'MI' },
+  { name: 'Riverside Skate Park (Detroit)', href: 'https://maps.app.goo.gl/iwwwCwbFSFaEmNhj9', state: 'MI' },
+  { name: 'Garden City Skate Park (Garden City)', href: 'https://maps.app.goo.gl/Z8yVcadeDFUsf2Ji8', state: 'MI' },
+  { name: 'Riley Skate Park (Farmington Hills)', href: 'https://maps.app.goo.gl/yk69kqiZ7CbExtYi9', state: 'MI' },
+  { name: 'Donald Red Geary Skate Park (Ferndale)', href: 'https://maps.app.goo.gl/epjipMC5qcekQuju5', state: 'MI' },
+  { name: 'Ypsi Community Skate Park (Ypsilanti)', href: 'https://maps.app.goo.gl/sTKQfRyUdrLzL1tf6', state: 'MI' },
+  { name: 'Prospect DIY Park (Ypsilanti)', href: 'https://maps.app.goo.gl/7fWGMFbGFcL5pvTT7', state: 'MI' },
+  { name: 'Ann Arbor Skate Park (Ann Arbor)', href: 'https://maps.app.goo.gl/amj6TFHVNEiJtRzA6', state: 'MI' },
+  { name: 'Modern Skate & Surf (Royal Oak)', href: 'https://maps.app.goo.gl/mJWofN4bZng1gR1N6', state: 'MI' },
+  { name: 'Fred Alexander Pump Track (Charlotte)', href: 'https://maps.app.goo.gl/wZGHSSj4MuP6A2Mx7', state: 'NC' },
+  { name: 'Renaissance Park Skate Park (Charlotte)', href: 'https://maps.app.goo.gl/Nc5y8e78fbbLtW7r7', state: 'NC' },
+  { name: 'Belmont Skate Park (Belmont)', href: 'https://maps.app.goo.gl/xwPspboAcZMXe5Pw5', state: 'NC' },
+  { name: 'Pump Track Gastonia (Gastonia)', href: 'https://maps.app.goo.gl/1PM1MbUeyk4aKMiz5', state: 'NC' },
+  { name: 'Moorseville Skate Park (Moorseville)', href: 'https://maps.app.goo.gl/q7egoU3G3aGg3ok57', state: 'NC' },
+  { name: 'Latham Skate (Greensboro)', href: 'https://maps.app.goo.gl/y3JPeKjpBG7uSoMh9', state: 'NC' },
+];

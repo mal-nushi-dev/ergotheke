@@ -3,7 +3,7 @@ import BlogPosts from 'app/components/posts';
 
 // Define your skating subpages
 const skatingSubpages = [
-  { name: 'My Gear', slug: 'gear', description: 'A look at my current setup.' },
+  { name: 'My Gear', slug: 'skate_gear', description: 'A look at my current setup.' },
   { name: 'Favorite Spots', slug: 'skate_spots', description: 'Best places I\'ve skated.' },
 ];
 
@@ -15,7 +15,7 @@ export const metadata = {
 export default function SkatingPage() {
   return (
     <section>
-      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">Skating</h1>
+      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">{metadata.title}</h1>
       <p className="mb-8 text-neutral-600 dark:text-neutral-400">{metadata.description}</p>
       <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">

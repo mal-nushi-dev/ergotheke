@@ -23,7 +23,7 @@ export default function GearPage() {
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
         {skatingGearSubpages.map((subpage) => (
           <li key={subpage.slug}>
-            <Link href={`/sidequests/skating/gear/${subpage.slug}`}>
+            <Link href={`/sidequests/skating/skate_gear/${subpage.slug}`}>
               <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
                 <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
                 <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">{subpage.description}</p>

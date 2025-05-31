@@ -35,7 +35,7 @@ export default function SkatingPage() {
       <div className="my-8">
         <h2 className="mb-4 text-xl font-semibold tracking-tight">Blog Posts</h2>
         <p className="mb-4">
-          Working on getting this component set-up 🧰.
+          Working on getting this component set-up.
           I need to configure my rss feed route to bring in tags and then have
           this component only display posts with a specific tag. Now that I am thinking about it,
           I should do a blog post about implementing this blog feature. Woah.

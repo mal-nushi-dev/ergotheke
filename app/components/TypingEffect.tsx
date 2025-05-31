@@ -1,3 +1,10 @@
+/**
+ * What is this component you say??? It is a TypingEffect component.
+ * 
+ * It displays a typing animation for a given word, character by character.
+ * Check the homepage to see it in action: `$whoami`
+ */
+
 'use client'
 import { useEffect, useState } from 'react'
 

@@ -30,9 +30,7 @@ export default function PhotographyPage(): React.JSX.Element {
       <h1 className="mb-2 text-2xl font-semibold tracking-tighter">{metadata.title?.toString() ?? ''}</h1>
       <FlashingText text={metadata.description?.toString() ?? ''} flashWord="things" className="mb-8 text-neutral-600 dark:text-neutral-400"/>
       
-      {/* Remove the redundant paragraph since FlashingText now handles the full description */}
-      <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
-      
+      <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>     
       {/*List of subpages for the photography section*/}
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
         {photographySubpages.map((subpage) => (

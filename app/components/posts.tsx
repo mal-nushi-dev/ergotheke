@@ -1,4 +1,4 @@
-import { fetchBlogFeed } from 'app/blog/rss-client'
+import { fetchBlogFeed } from "app/blog/rss-client";
 
 /**
  * Server component that fetches and renders a list of external blog posts.
@@ -11,20 +11,22 @@ import { fetchBlogFeed } from 'app/blog/rss-client'
  */
 export default async function BlogPosts(): Promise<JSX.Element> {
   // Explicitly type the posts variables to match `fetchBlogFeed's` return type
-  let posts: Awaited<ReturnType<typeof fetchBlogFeed>> = []
+  let posts: Awaited<ReturnType<typeof fetchBlogFeed>> = [];
 
   try {
-    posts = await fetchBlogFeed()
+    posts = await fetchBlogFeed();
     // posts.forEach((p) => console.log('Post date:', p.date))
   } catch (error) {
-    console.error('Failed to fetch blog feed:', error)
+    console.error("Failed to fetch blog feed:", error);
   }
 
   // Render fallback message if no posts, otherwise map over and display each post
   return (
     <div>
       {posts.length === 0 ? (
-        <p className="text-neutral-500">No blog posts found or failed to load feed ☹</p>
+        <p className="text-neutral-500">
+          No blog posts found or failed to load feed ☹
+        </p>
       ) : (
         posts.map((post) => (
           <a
@@ -46,5 +48,5 @@ export default async function BlogPosts(): Promise<JSX.Element> {
         ))
       )}
     </div>
-  )
+  );
 }

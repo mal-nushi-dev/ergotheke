@@ -12,7 +12,7 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Footer() {
@@ -43,7 +43,7 @@ export default function Footer() {
           </a>
         </li>
 
-                <li>
+        <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
@@ -58,9 +58,8 @@ export default function Footer() {
       <p className="mt-8 text-neutral-600 dark:text-neutral-300">
         © {new Date().getFullYear()} Mal Nushi. All rights reserved.
         <br />
-        Made with ♥ in Detroit.
-        Maintained in Charlotte.
+        Made with ♥ in Detroit. Maintained in Charlotte.
       </p>
     </footer>
-  )
+  );
 }

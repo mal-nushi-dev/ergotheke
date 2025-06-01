@@ -30,7 +30,8 @@ const skatingSubpages: {
  */
 export const metadata = {
   title: "Skating",
-  description: "My skate equipment and favorite spots",
+  description:
+    "My skate equipment and favorite spots. You will usually see me with a surfskate, but recently I have picked up inline skates. Completely different experience, but so fun!",
 };
 
 /**
@@ -38,7 +39,7 @@ export const metadata = {
  * and skateboarding text effect applied to the description.
  * @returns {React.JSX.Element} - Rendered Skating page component.
  */
-export default function SkatingPage() {
+export default function SkatingPage(): React.JSX.Element {
   return (
     <section>
       <h1 className="mb-2 text-2xl font-semibold tracking-tighter">

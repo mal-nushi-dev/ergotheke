@@ -11,9 +11,8 @@ import React from "react";
 
 /**
  * Props for the SkateEffect component
- *
- * @property {string} text - The complete text content to display.
- * @property {string} skateWord - The specific word that should have the skate effect.
+ * @property {string} text - The complete text content to display
+ * @property {string} skateWord - The specific word that should have the skate effect
  * @property {string} [className] - Optional CSS class name for styling the container paragraph
  */
 interface SkateEffectProps {
@@ -23,12 +22,11 @@ interface SkateEffectProps {
 }
 
 /**
- * This renders the text with a skate effect applied to a chosen word.
- *
- * @param {Object} props - Component props.
- * @param {string} props.text - The full text to display.
- * @param {string} props.skateWord - The word within the text that should skate in.
- * @param {string} [props.className] - Optional CSS class for styling.
+ * This renders the text with a skate effect applied to a chosen word
+ * @param {Object} props - Component props
+ * @param {string} props.text - The full text to display
+ * @param {string} props.skateWord - The word within the text that should skate in
+ * @param {string} [props.className] - Optional CSS class for styling
  * @returns - The rendered text with a skate effect
  */
 export default function SkateText({
@@ -41,19 +39,18 @@ export default function SkateText({
     return <p className={className}>{text}</p>;
   }
 
-  // Split the text by the skateWord to create parts
-  const parts = text.split(skateWord);
+  // Find the index of the first occurrence of skateWord
+  const wordIndex = text.indexOf(skateWord);
+
+  // Split the text into three parts: before the word, the word itself, and after the word
+  const beforeText = text.slice(0, wordIndex);
+  const afterText = text.slice(wordIndex + skateWord.length);
 
   return (
     <p className={className}>
-      {parts.map((part, index) => (
-        <React.Fragment key={index}>
-          {part}
-          {index < parts.length - 1 && (
-            <span className="skateboard-effect">{skateWord}</span>
-          )}
-        </React.Fragment>
-      ))}
+      {beforeText}
+      <span className="skateboard-effect">{skateWord}</span>
+      {afterText}
       <style jsx>{`
         .skateboard-effect {
           display: inline-block;

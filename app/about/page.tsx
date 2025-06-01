@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">About Me</h1>
-      <p className="mb-4">
+      <div className="mb-4">
         I thought of using AI for this, because honestly I think it is difficult
         describing yourself. I can't be the only one who thinks this, right? So
         I am going to put myself to the test and write this section without the
@@ -60,7 +60,7 @@ export default function AboutPage() {
             </p>
           </Link>
         </div>
-      </p>
+      </div>
     </section>
   );
 }

@@ -7,13 +7,13 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
+import { PersonJsonLd } from "./components/seo/json-ld";
 
 const siteTitle: string = "Mal Nushi";
 const siteDescription: string = "Mal Nushis Personal Website";
 
 /**
  * Metadata configuration for Next.js pages.
- *
  * - `metadataBase`: Base URL used for constructing absolute URLs in metadata.
  * - `title`: Defines both the default title and a template for dynamic titles.
  * - `description`: A short description of the site.
@@ -92,6 +92,11 @@ export default function RootLayout({
           <Footer />
           <Analytics />
           <SpeedInsights />
+          <PersonJsonLd
+            name="Mal Nushi"
+            description={siteDescription}
+            url={baseUrl}
+          />
         </main>
       </body>
     </html>

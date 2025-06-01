@@ -38,7 +38,7 @@ export const metadata: Metadata = {
  * @param {React.ReactNode} props.children - Content to render (typically court name)
  * @returns {React.JSX.Element} Rendered list item with external link
  */
-export const PickleballCourtItem = ({
+const PickleballCourtItem = ({
   href,
   children,
 }: PickleballCourtItemProps): React.JSX.Element => (

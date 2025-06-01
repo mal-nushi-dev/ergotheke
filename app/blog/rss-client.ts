@@ -1,4 +1,4 @@
-import Parser from 'rss-parser';
+import Parser from "rss-parser";
 
 // Define the shape of each blog post we expect from the RSS feed
 export type BlogPost = {
@@ -7,7 +7,7 @@ export type BlogPost = {
   date: string;
   guid: string;
   contentSnippet?: string;
-}
+};
 
 // Create a new RSS parser instance, typed to expect BlogPost items
 const parser: Parser<{}, BlogPost> = new Parser();
@@ -23,16 +23,16 @@ const parser: Parser<{}, BlogPost> = new Parser();
  */
 export async function fetchBlogFeed(): Promise<BlogPost[]> {
   try {
-    const feed = await parser.parseURL('https://www.kodikion.com/rss.xml');
+    const feed = await parser.parseURL("https://www.kodikion.com/rss.xml");
 
     const items = feed.items.map((item) => ({
       ...item,
-      date: item.date || item.pubDate || '',
-    }))
+      date: item.date || item.pubDate || "",
+    }));
 
     return items;
   } catch (error) {
-    console.error('Failed to fetch RSS feed:', error);
+    console.error("Failed to fetch RSS feed:", error);
     return [];
   }
 }

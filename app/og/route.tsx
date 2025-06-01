@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from "next/og";
 
 /**
  * Handles GET requests to generate a dynamic Open Graph image.
@@ -8,8 +8,8 @@ import { ImageResponse } from 'next/og'
  * @returns {ImageResponse} A dynamically generated image for Open Graph/social sharing.
  */
 export function GET(request: Request): ImageResponse {
-  let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'Mal Nushi'
+  let url = new URL(request.url);
+  let title = url.searchParams.get("title") || "Mal Nushi";
 
   // Return a dynamically generated image with the specified title
   return new ImageResponse(
@@ -26,5 +26,5 @@ export function GET(request: Request): ImageResponse {
       width: 1200,
       height: 630,
     }
-  )
+  );
 }

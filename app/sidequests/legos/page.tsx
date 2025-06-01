@@ -1,16 +1,17 @@
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import React from 'react';
-import LegoWordBuilder from 'app/components/LegoWordBuilder'
-// import BlogPosts from 'app/components/posts';
+import Link from "next/link";
+import type { Metadata } from "next";
+import React from "react";
+import LegoWordBuilder from "app/components/LegoWordBuilder";
+import TaggedBlogPosts from "app/components/TaggedBlogPosts";
 
 // Define the subpages for the legos page
 const legoSubpages = [
   {
-    name: 'Gallery',
-    slug: 'legos_gallery',
-    description: 'I should charge you for this one, but I can\'t. Living in Charlotte is expensive man.',
-    externalUrl: 'https://www.instagram.com/mal.builds.legos/'
+    name: "Gallery",
+    slug: "legos_gallery",
+    description:
+      "I should charge you for this one, but I can't. Living in Charlotte is expensive man.",
+    externalUrl: "https://www.instagram.com/mal.builds.legos/",
   },
 ];
 
@@ -18,7 +19,7 @@ const legoSubpages = [
  * Metadata for the Legos page. This object is used by Next.js to set the page title and description for SEO and browser display.
  */
 export const metadata: Metadata = {
-  title: 'Legos',
+  title: "Legos",
   description: `I know... it is kind of lame, but I digitally build legos. But when you lack space and the will to spend funds on 
     the lego pieces then there is no better alternative. Maybe someday I will take the time. Actually, as I am typing this I kind of
     want to do it now.`,
@@ -32,24 +33,28 @@ export const metadata: Metadata = {
  */
 export default function LegosPage(): React.JSX.Element {
   // Extract description and single out specific word
-  const description = metadata.description?.toString() ?? '';
+  const description = metadata.description?.toString() ?? "";
   const buildPattern = /(build)/i;
   const parts = description.split(buildPattern);
 
   return (
     <section>
-      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">{metadata.title?.toString() ?? ''}</h1>
-      
+      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">
+        {metadata.title?.toString() ?? ""}
+      </h1>
+
       <h2 className="mb-8 text-neutral-600 dark:text-neutral-400">
         {parts.map((part, index) => {
-          const isLegoWord = part.toLowerCase() === 'build';
-          
-          return isLegoWord 
-            ? <LegoWordBuilder key={index} word={part} /> 
-            : <span key={index}>{part}</span>;
+          const isLegoWord = part.toLowerCase() === "build";
+
+          return isLegoWord ? (
+            <LegoWordBuilder key={index} word={part} />
+          ) : (
+            <span key={index}>{part}</span>
+          );
         })}
       </h2>
-      
+
       {/*List of subpages for the lego section*/}
       <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
@@ -57,17 +62,25 @@ export default function LegosPage(): React.JSX.Element {
           <li key={subpage.slug}>
             {/* This is a conditional render: use external link if exists, otherwise use internal link */}
             {subpage.externalUrl ? (
-              <a href={subpage.externalUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={subpage.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
                   <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">{subpage.description}</p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
+                    {subpage.description}
+                  </p>
                 </div>
               </a>
             ) : (
               <Link href={`/sidequests/legos/${subpage.slug}`}>
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
                   <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">{subpage.description}</p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
+                    {subpage.description}
+                  </p>
                 </div>
               </Link>
             )}
@@ -76,14 +89,15 @@ export default function LegosPage(): React.JSX.Element {
       </ul>
 
       <div className="my-8">
-        <h2 className="mb-4 text-xl font-semibold tracking-tight">Blog Posts</h2>
-        <p className="mb-4">
-          Working on getting this component set-up.
-          I need to configure my rss feed route to bring in tags and then have
-          this component only display posts with a specific tag. Now that I am thinking about it,
-          I should do a blog post about implementing this blog feature. Woah.
-        </p>
-        {/* <BlogPosts /> */}
+        <h2 className="mb-4 text-xl font-semibold tracking-tight">
+          Blog Posts
+        </h2>
+        <div>
+          <TaggedBlogPosts
+            tags={["legos"]}
+            // limit={5}
+          />
+        </div>
       </div>
     </section>
   );

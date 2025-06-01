@@ -1,4 +1,4 @@
-import { fetchBlogFeed } from "app/blog/rss-client";
+import { fetchBlogFeed, BlogPost } from "app/blog/rss-client";
 
 /**
  * Server component that fetches and renders a list of external blog posts.
@@ -34,13 +34,13 @@ export default async function BlogPosts(): Promise<JSX.Element> {
             href={post.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block mb-4"
+            className="block mb-4 group"
           >
             <div className="flex flex-col md:flex-row md:items-baseline space-x-0 md:space-x-2">
               <p className="text-neutral-600 dark:text-neutral-400 min-w-[100px] flex-shrink-0 tabular-nums">
                 {new Date(post.date).toLocaleDateString()}
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
                 {post.title}
               </p>
             </div>

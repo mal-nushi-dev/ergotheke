@@ -7,6 +7,7 @@ export type BlogPost = {
   date: string;
   guid: string;
   contentSnippet?: string;
+  tags?: string[];
 };
 
 // Create a new RSS parser instance, typed to expect BlogPost items
@@ -28,6 +29,7 @@ export async function fetchBlogFeed(): Promise<BlogPost[]> {
     const items = feed.items.map((item) => ({
       ...item,
       date: item.date || item.pubDate || "",
+      tags: item.categories || [],
     }));
 
     return items;

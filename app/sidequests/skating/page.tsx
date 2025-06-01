@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SkateText from "app/components/SkateEffect";
-// import BlogPosts from 'app/components/posts';
+import TaggedBlogPosts from "app/components/TaggedBlogPosts";
 
 /**
  * Interface & class for the structure of skating subpages
@@ -72,13 +72,24 @@ export default function SkatingPage(): React.JSX.Element {
         <h2 className="mb-4 text-xl font-semibold tracking-tight">
           Blog Posts
         </h2>
-        <p className="mb-4">
-          Working on getting this component set-up. I need to configure my rss
-          feed route to bring in tags and then have this component only display
-          posts with a specific tag. Now that I am thinking about it, I should
-          do a blog post about implementing this blog feature. Woah.
-        </p>
-        {/* <BlogPosts /> */}
+        <div>
+          <TaggedBlogPosts
+            tags={[
+              "skateboard",
+              "skating",
+              "surfskate",
+              "inline skating",
+              "inline skates",
+              "rollerblading",
+              "rollerblades",
+              "roller skating",
+              "roller skates",
+              "penny boards",
+              "carver",
+            ]}
+            // limit={5}
+          />
+        </div>
       </div>
     </section>
   );

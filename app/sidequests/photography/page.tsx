@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import React from "react";
 import FlashingText from "app/components/FlashingText";
-// import BlogPosts from 'app/components/posts';
+import TaggedBlogPosts from "app/components/TaggedBlogPosts";
 
 // Define the subpages for the photography page
 const photographySubpages = [
@@ -84,13 +84,12 @@ export default function PhotographyPage(): React.JSX.Element {
         <h2 className="mb-4 text-xl font-semibold tracking-tight">
           Blog Posts
         </h2>
-        <p className="mb-4">
-          Working on getting this component set-up. I need to configure my rss
-          feed route to bring in tags and then have this component only display
-          posts with a specific tag. Now that I am thinking about it, I should
-          do a blog post about implementing this blog feature. Woah.
-        </p>
-        {/* <BlogPosts /> */}
+        <div>
+          <TaggedBlogPosts
+            tags={["photography", "photos"]}
+            // limit={5}
+          />
+        </div>
       </div>
     </section>
   );

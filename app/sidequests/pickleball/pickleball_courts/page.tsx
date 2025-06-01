@@ -1,4 +1,4 @@
-import { pickleballSpots } from "./pickleballSpots";
+import { pickleballCourts } from "./pickleballCourts";
 import type { Metadata } from "next";
 import React from "react";
 
@@ -8,7 +8,7 @@ import React from "react";
  * @property {string} href - The link to the pickleball court
  * @property {string} state - The state which the pickleball court resides
  */
-interface PickelballSpot {
+interface PickelballCourt {
   name: string;
   href: string;
   state: string;
@@ -19,29 +19,29 @@ interface PickelballSpot {
  * @property {string} href - URL to the pickleball court's website
  * @property {React.ReactNode} children - Child elements (typically the spot name)
  */
-interface PickleballSpotItemProps {
+interface PickleballCourtItemProps {
   href: string;
   children: React.ReactNode;
 }
 
 // Page metadata for SEO
 export const metadata: Metadata = {
-  title: "Pickleball Spots",
-  description: "Best courts I have played in.",
+  title: "Pickleball Courts",
+  description: "Best courts I have played in",
 };
 
 /**
  * Component for rendering a single pickleball court as a list item
  * Creates a list item with an external link to the court's website
- * @param {PickleballSpotItemProps} props - Component properties
+ * @param {PickleballCourtItemProps} props - Component properties
  * @param {string} props.href - URL to the court's website
  * @param {React.ReactNode} props.children - Content to render (typically court name)
  * @returns {React.JSX.Element} Rendered list item with external link
  */
-export const PickleballSpotItem = ({
+export const PickleballCourtItem = ({
   href,
   children,
-}: PickleballSpotItemProps): React.JSX.Element => (
+}: PickleballCourtItemProps): React.JSX.Element => (
   <li className="text-blue-700 dark:text-blue-500 font-medium hover:underline">
     <a href={href} target="_blank" rel="noopener noreferrer">
       {children}
@@ -67,12 +67,12 @@ export default function Page(): React.JSX.Element {
 
       <h2 className="font-semibold text-lg mb-2 tracking-tight">Michigan 🇺🇸</h2>
       <ul>
-        {pickleballSpots
-          .filter((spot) => spot.state === "MI")
-          .map((spot) => (
-            <PickleballSpotItem key={spot.href} href={spot.href}>
-              {spot.name}
-            </PickleballSpotItem>
+        {pickleballCourts
+          .filter((court) => court.state === "MI")
+          .map((court) => (
+            <PickleballCourtItem key={court.href} href={court.href}>
+              {court.name}
+            </PickleballCourtItem>
           ))}
       </ul>
 
@@ -82,12 +82,12 @@ export default function Page(): React.JSX.Element {
         North Carolina 🇺🇸
       </h2>
       <ul>
-        {pickleballSpots
-          .filter((spot) => spot.state === "NC")
-          .map((spot) => (
-            <PickleballSpotItem key={spot.href} href={spot.href}>
-              {spot.name}
-            </PickleballSpotItem>
+        {pickleballCourts
+          .filter((court) => court.state === "NC")
+          .map((court) => (
+            <PickleballCourtItem key={court.href} href={court.href}>
+              {court.name}
+            </PickleballCourtItem>
           ))}
       </ul>
 

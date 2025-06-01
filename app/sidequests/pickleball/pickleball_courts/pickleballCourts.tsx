@@ -1,4 +1,4 @@
-export const pickleballSpots = [
+export const pickleballCourts = [
   {
     name: "Unity Skate Park (Northville)",
     href: "https://maps.app.goo.gl/936HbHLVFFrgRhRT7",

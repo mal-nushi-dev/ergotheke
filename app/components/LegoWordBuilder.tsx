@@ -2,7 +2,6 @@
  * A LegoWordBuilder component.
  *
  * It's a client component that animates a word by breaking it apart and rebuilding it like LEGO blocks.
- * Perfect for LEGO-themed pages to add a playful visual effect.
  */
 
 "use client";
@@ -28,14 +27,13 @@ interface LegoWordBuilderProps {
 /**
  * This renders a word that animates by breaking apart and rebuilding like LEGO blocks.
  * The animation cycle goes: built -> unbuilding -> unbuilt -> building -> built
- *
  * @param {Object} props - Component props
  * @param {string} props.word - The word to animate
  * @param {number} props.interval - Full animation cycle duration
  * @param {number} props.buildTime - Transition duration
  * @param {string[]} props.colors - LEGO brick colors for letters
  * @param {string} props.className - Optional CSS class for styling
- * @returns - The rendered animated word
+ * @returns {React.JSX.Element} - The rendered animated word
  */
 export default function LegoWordBuilder({
   word,

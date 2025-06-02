@@ -1,5 +1,5 @@
 import TypingEffect from "./components/TypingEffect";
-import BlogPosts from "app/components/posts";
+// import BlogPosts from "app/components/posts";
 
 export default function Page() {
   return (
@@ -15,7 +15,7 @@ export default function Page() {
         purpose.
       </p>
       <div className="my-8">
-        <BlogPosts />
+        // <BlogPosts />
       </div>
     </section>
   );

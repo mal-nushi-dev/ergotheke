@@ -15,7 +15,7 @@ export default function Page() {
         purpose.
       </p>
       <div className="my-8">
-        /* <BlogPosts /> */
+        {/* <BlogPosts /> */}
       </div>
     </section>
   );

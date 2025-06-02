@@ -94,7 +94,7 @@ export default function LegosPage(): React.JSX.Element {
         </h2>
         <div>
           <TaggedBlogPosts
-            tags={["legos"]}
+            tags={["legos", "lego_page"]}
             // limit={5}
           />
         </div>

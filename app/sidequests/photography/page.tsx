@@ -86,7 +86,7 @@ export default function PhotographyPage(): React.JSX.Element {
         </h2>
         <div>
           <TaggedBlogPosts
-            tags={["photography", "photos"]}
+            tags={["photography", "photos", "photography_page"]}
             // limit={5}
           />
         </div>

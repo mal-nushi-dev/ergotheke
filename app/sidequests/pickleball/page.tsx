@@ -75,7 +75,7 @@ export default function PickleballPage(): React.JSX.Element {
         </h2>
         <div>
           <TaggedBlogPosts
-            tags={["pickleball"]}
+            tags={["pickleball", "pickleball_page"]}
             // limit={5}
           />
         </div>

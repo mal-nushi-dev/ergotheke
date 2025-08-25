@@ -24,7 +24,8 @@ const parser: Parser<{}, BlogPost> = new Parser();
  */
 export async function fetchBlogFeed(): Promise<BlogPost[]> {
   try {
-    const feed = await parser.parseURL("https://www.kodikion.com/rss.xml");
+    // const feed = await parser.parseURL("https://www.kodikion.com/rss.xml");
+    const feed = await parser.parseURL("https://kodikion.substack.com/feed");
 
     const items = feed.items.map((item) => ({
       ...item,

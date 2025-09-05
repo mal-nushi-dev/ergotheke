@@ -9,14 +9,12 @@ export default function Page() {
       </h1>
       <p className="mb-4">
         <TypingEffect text="$whoami" />
-        <br />A software engineer at Ally Financial, crafting resilient data
-        systems that power strategic decisions and streamline operations.
-        Curious by nature, precise by practice, and always building with
+        <br />A software engineer at Ally Financial, building user
+        interfaces and APIs for the Ally Customer Master application.
+        Curious by nature, precise by practice, and always developing with
         purpose.
       </p>
-      <div className="my-8">
-        {/* <BlogPosts /> */}
-      </div>
+      <div className="my-8">{/* <BlogPosts /> */}</div>
     </section>
   );
 }

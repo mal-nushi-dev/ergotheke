@@ -16,8 +16,9 @@ export default function AboutPage() {
         use of these new computer tools.
         <br></br>
         <br></br>I am a Charlotte, NC based Software Engineer @ Ally Financial.
-        I specialize in the data-side of things working closely with our data
-        systems 🤓.
+        As part of the Enterprise Data & Analytics organization at Ally, I serve
+        as a full stack engineer, focusing on developing user interfaces & APIs
+        for our Ally Customer Master application.
         <br></br>
         <br></br>
         Without getting into too much detail about my personal life: because of

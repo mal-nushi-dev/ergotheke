@@ -1,6 +1,0 @@
-{
-  "approvedBuilds": {
-    "@vercel/speed-insights": true,
-    "sharp": true
-  }
-}

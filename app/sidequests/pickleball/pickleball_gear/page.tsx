@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import React from "react";
-import { safeString } from "../../../utils/safeString";
+import { safeString } from "@/app/utils/safeString";
 
 /**
  * Interface representing a pickleball gear item

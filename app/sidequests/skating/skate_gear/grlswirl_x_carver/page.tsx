@@ -6,6 +6,24 @@ export default function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         The Original GRLSWIRL x Carver Surfskate
       </h1>
+      <h2 className="font-semibold text-lg mb-2 tracking-tight">Overview</h2>
+      <p className="mb-4">
+        This board was a gift, and I absolutely love it. I ride it every week
+        when I skate with Let's Skate Charlotte and friends. The deck is short,
+        which makes it super maneuverable in the city; especially in NYC during
+        the Big Apple Roll. Since it's designed for pumping and carving, I've
+        set it up to lean into that style. With the Carver CX truck system, it
+        feels looser and more flowy than a traditional skateboard, letting me
+        pump for speed instead of pushing. The 70mm, 78a Surfskate Love wheels
+        (sadly no longer for sale) are perfect — smooth over rough ground, tons
+        of grip, and still quick to accelerate. The Riptide bushings give more
+        rebound than the stock Carver ones, which I really like. I can't say I
+        notice much difference with the Riptide pivot cups, but it was worth
+        swapping them in since my old ones were worn out. And the G|Bomb
+        bearings? Just a solid, affordable choice that's held up without a
+        single issue.
+      </p>
+      <br />
       <h2 className="font-semibold text-lg mb-2 tracking-tight">Board Specs</h2>
       <p className="mb-4">
         <ul>

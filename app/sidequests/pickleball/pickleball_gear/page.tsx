@@ -1,17 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import React from "react";
+import { safeString } from "../../../utils/safeString";
 
 /**
  * Interface representing a pickleball gear item
  * @property {string} name - Display the name of the gear
  * @property {string} slug - URL slug for routing
  * @property {string} description - Short description of the gear
- * @property {string} externalUrl - Optional external uRL if the item links to an external site
+ * @property {string} externalUrl - Optional external url if the item links to an external site
  */
 interface PickelballGearItem {
   name: string;
   slug: string;
+  title: string;
   description: string;
   externalUrl?: string;
 }
@@ -20,13 +22,11 @@ interface PickelballGearItem {
 const pickleballGearSubpages: PickelballGearItem[] = [
   {
     name: "Vatic Pro Prism Flash Carbon Fiber 16MM - Foam Injected Walls",
-    slug: "vatic_pro_prism_flash_carbon_fiber_16mm",
+    slug: "vatic_pro_prism",
+    title: "Vatic Pro Prism Flash Carbon Fiber 16MM - Foam Injected Walls",
     description: "I slice well with this bad boy.",
-    externalUrl:
-      "https://vaticpro.com/products/prism-flash-16mm?variant=44442736853151",
   },
 ];
-
 // Page metadata for SEO
 export const metadata: Metadata = {
   title: "My Pickleball Gear",
@@ -45,11 +45,11 @@ export default function GearPage(): React.JSX.Element {
   return (
     <section>
       <h1 className="mb-2 text-2xl font-semibold tracking-tighter">
-        {metadata.title?.toString() ?? ""}
+        {safeString(metadata.title)}
       </h1>
 
       <p className="mb-8 text-neutral-600 dark:text-neutral-400">
-        {metadata.description?.toString() ?? ""}
+        {safeString(metadata.description)}
       </p>
 
       {/* Responsive grid layout for gear items */}
@@ -57,25 +57,31 @@ export default function GearPage(): React.JSX.Element {
         {pickleballGearSubpages.map((subpage) => (
           <li key={subpage.slug}>
             {/* This is a conditional render: use external link if exists, otherwise use internal link */}
-            {subpage.externalUrl ? (
+            {safeString(subpage.externalUrl) ? (
               <a
-                href={subpage.externalUrl}
+                href={safeString(subpage.externalUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
-                  <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
+                  <h3 className="text-md font-semibold mb-1">
+                    {safeString(subpage.name)}
+                  </h3>
                   <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
-                    {subpage.description}
+                    {safeString(subpage.description)}
                   </p>
                 </div>
               </a>
             ) : (
-              <Link href={`/sidequests/photography/${subpage.slug}`}>
+              <Link
+                href={`/sidequests/pickleball/pickleball_gear/${subpage.slug}`}
+              >
                 <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
-                  <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
+                  <h3 className="text-md font-semibold mb-1">
+                    {safeString(subpage.name)}
+                  </h3>
                   <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
-                    {subpage.description}
+                    {safeString(subpage.description)}
                   </p>
                 </div>
               </Link>

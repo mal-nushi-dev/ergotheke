@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -11,12 +11,20 @@ export default function Page() {
       </h2>
       <p className="mb-4">
         <ul>
-          <li><strong>Frame:</strong> Aluminum 6000</li>
-          <li><strong>Wheels:</strong> FILA 84mm (83A Durometer)</li>
-          <li><strong>Bearings:</strong> ABEC-7</li>
-          <li><strong>Other:</strong> High Cuff, Metal Axles, Aluminum Spacers</li>
+          <li>
+            <strong>Frame:</strong> Aluminum 6000
+          </li>
+          <li>
+            <strong>Wheels:</strong> FILA 84mm (83A Durometer)
+          </li>
+          <li>
+            <strong>Bearings:</strong> ABEC-7
+          </li>
+          <li>
+            <strong>Other:</strong> High Cuff, Metal Axles, Aluminum Spacers
+          </li>
         </ul>
       </p>
     </section>
-  )
+  );
 }

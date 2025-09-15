@@ -86,7 +86,7 @@ export default function SkatingPage(): React.JSX.Element {
               "roller skates",
               "penny boards",
               "carver",
-              "skating_page"
+              "skating_page",
             ]}
             // limit={5}
           />

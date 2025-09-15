@@ -5,8 +5,9 @@ export default function SidequestUnderConstruction() {
         I am currently building this page.
       </h1>
       <p className="text-center text-gray-600 dark:text-neutral-100">
-        Please do not rush me.<br />
+        Please do not rush me.
+        <br />
       </p>
     </section>
-  )
+  );
 }

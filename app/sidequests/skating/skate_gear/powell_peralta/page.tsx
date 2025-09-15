@@ -22,6 +22,7 @@ export default function Page() {
         about a medium, which makes them just responsive enough for carving. And
         finally, the Bones REDS are very solid.
       </p>
+      <br />
       <h2 className="font-semibold text-lg mb-2 tracking-tight">Board Specs</h2>
       <p className="mb-4">
         <ul>

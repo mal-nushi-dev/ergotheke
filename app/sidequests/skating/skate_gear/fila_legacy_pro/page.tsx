@@ -6,6 +6,15 @@ export default function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Fila Legacy Pro 84 Roller Blade
       </h1>
+      <h2 className="font-semibold text-lg mb-2 tracking-tight">Overview</h2>
+      <p className="mb-4">
+        These are my very first pair of rollerblades that I got from a local
+        shop called Derby City Skates. It was a good find that my friend, Sally,
+        helped me with. These skates are not really for aggressive skating or
+        marathon racing, and while I am slowly (very slowly) learning to skate,
+        I did find that these do well for city cruising.
+      </p>
+      <br />
       <h2 className="font-semibold text-lg mb-2 tracking-tight">
         Configurations
       </h2>

@@ -33,6 +33,8 @@ export function PersonJsonLd({
             "https://www.instagram.com/mal.builds.legos/",
             "https://www.facebook.com/nushimal",
             "https://www.threads.com/@malnushi",
+            "https://bsky.app/profile/malnushi.bsky.social",
+            "https://kodikion.substack.com/publish/home",
             "https://malnushigenealogy.me/",
           ],
         }),

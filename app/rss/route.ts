@@ -1,5 +1,5 @@
 import { baseUrl } from "app/sitemap";
-import { fetchBlogFeed } from "app/blog/rss-client";
+import { fetchBlogFeed } from "@/lib/blog/rss-client";
 
 /**
  * Handles GET requests to generate the RSS feed for the blog.

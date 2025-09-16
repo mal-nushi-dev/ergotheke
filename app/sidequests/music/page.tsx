@@ -1,18 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import React from "react";
-import TaggedBlogPosts from "app/components/TaggedBlogPosts";
-
-// Define the subpages for the Music page
-const musicSubpages = [
-  {
-    name: "My Gear",
-    slug: "music_gear",
-    description:
-      "The gear responsible for the sounds that make my neighbors think a rat’s meeting its end.",
-    externalUrl: "",
-  },
-];
+import TaggedBlogPosts from "@/components/tagged-blog-posts";
+import { sidequestSubpages } from "@/data/sidequests/music/subpages"; // Subpages defined here
 
 /**
  * Metadata for the Music page. This object is used by Next.js to set the page title and description for SEO and browser display.
@@ -42,7 +32,7 @@ export default function MusicPage(): React.JSX.Element {
       <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
       {/*List of subpages for the Music section*/}
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-        {musicSubpages.map((subpage) => (
+        {sidequestSubpages.map((subpage) => (
           <li key={subpage.slug}>
             {/* This is a conditional render: use external link if exists, otherwise use internal link */}
             {subpage.externalUrl ? (

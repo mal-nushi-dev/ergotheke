@@ -1,21 +1,11 @@
 import Link from "next/link";
-import TypingEffect from "../components/TypingEffect";
+import TypingEffect from "@/components/typing-effect";
+import { sidequests } from "@/data/sidequests/sidequests";
 
 export const metadata = {
   title: "Sidequests",
   description: "Because not everything has to compile",
 };
-
-const sidequests = [
-  { name: "Skating", emoji: "🛹", slug: "skating" },
-  { name: "Pickleball", emoji: "🏓", slug: "pickleball" },
-  { name: "Photography", emoji: "📷", slug: "photography" },
-  { name: "Legos", emoji: "🧱", slug: "legos" },
-  { name: "Music", emoji: "🎵", slug: "music" },
-  { name: "Keyboards", emoji: "⌨️", slug: "keyboards" },
-  { name: "Travel", emoji: "✈️", slug: "travel" },
-  { name: "Design", emoji: "🎨", slug: "design" },
-];
 
 export default function SidequestsPage() {
   return (

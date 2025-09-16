@@ -1,6 +1,6 @@
-import { repositories } from "./repositories";
-import { languageColors } from "./languageColors";
-import TypingEffect from "../components/TypingEffect";
+import { repositories } from "@/data/repositories";
+import { languageColors } from "@/data/language-colors";
+import TypingEffect from "@/components/typing-effect";
 
 export const metadata = {
   title: "Lab",

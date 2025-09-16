@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GearSubpages } from "@/data/sidequests/photography/gear-subpages"; // Subpages for each gear item
+import { GearSubpages } from "@/data/sidequests/pickleball/gear-subpages"; // Subpages for each gear item
 import { GearListPage } from "@/components/gear/gear-list-page";
 
 // SEO metadata

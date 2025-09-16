@@ -17,7 +17,7 @@ type Metadata = {
 };
 
 /**
- * Parses the frontmatter metadata and content from a string and content from a string containing an MDX file.
+ * Parses the frontmatter metadata and content from a string containing an MDX file.
  *
  * @param {string} fileContent - The raw content of the MDX file as a string.
  * @returns {{ metadata: Metadata; content: string }} An object containing the parsed metadata and the main content of the MDX file.
@@ -46,7 +46,7 @@ function parseFrontmatter(fileContent: string) {
  * @param {string} dir - The directory to search for MDX files.
  * @returns {string[]} An array of file names (without extensions) for all `.mdx` files in the directory.
  */
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
@@ -56,7 +56,7 @@ function getMDXFiles(dir) {
  * @param {string} filePath - The path to the MDX file.
  * @returns {{ metadata: Metadata, content: string }} The parsed metadata and content.
  */
-function readMDXFile(filePath) {
+function readMDXFile(filePath: string) {
   let rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }
@@ -67,7 +67,7 @@ function readMDXFile(filePath) {
  * @param {string} dir - The directory containing MDX files.
  * @returns {Array<{ metadata: Metadata, slug: string, content: string }>} An array of objects for each MDX file.
  */
-function getMDXData(dir) {
+function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));

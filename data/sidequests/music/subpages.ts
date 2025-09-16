@@ -6,6 +6,5 @@ export const sidequestSubpages: SidequestSubpage[] = [
     slug: "music_gear",
     description:
       "The gear responsible for the sounds that make my neighbors think a rat’s meeting its end.",
-    externalUrl: "",
   },
 ];

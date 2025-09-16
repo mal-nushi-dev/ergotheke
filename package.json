@@ -13,7 +13,7 @@
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "geist": "1.5.1",
-    "next": "canary",
+    "next": "^15.5.3",
     "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
     "react": "18.2.0",
@@ -23,8 +23,11 @@
     "tailwindcss": "4.0.0-alpha.13",
     "typescript": "5.3.3"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.16.1+sha512.0e155aa2629db8672b49e8475da6226aa4bdea85fdcdfdc15350874946d4f3c91faaf64cbdc4a5d1ab8002f473d5c3fcedcd197989cf0390f9badd3c04678706",
   "pnpm": {
-    "onlyBuiltDependencies": ["sharp", "@vercel/speed-insights"]
+    "onlyBuiltDependencies": [
+      "sharp",
+      "@vercel/speed-insights"
+    ]
   }
 }

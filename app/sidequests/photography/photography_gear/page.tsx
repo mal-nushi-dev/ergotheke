@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { safeString } from "@/utils/safe-string";
 import { GearSubpages } from "@/data/sidequests/photography/gear-subpages"; // Subpages defined here
-import { GearCard } from "@/components/gear-card"; // Shows the cards for each gear
+import { GearCard } from "@/components/gear/gear-card"; // Shows the cards for each gear
 
 export const metadata = {
   title: "My Photography Gear",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { safeString } from "@/utils/safe-string";
-import { GearCard } from "@/components/gear-card"; // Displays the cards for each gear item
+import { GearCard } from "@/components/gear/gear-card"; // Displays the cards for each gear item
 import type { GearItem } from "@/interfaces/gear-item";
 
 /**

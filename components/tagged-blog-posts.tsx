@@ -1,4 +1,4 @@
-import { fetchBlogFeed, BlogPost } from "../blog/rss-client";
+import { fetchBlogFeed, BlogPost } from "@/lib/blog/rss-client";
 
 interface TaggedBlogPostsProps {
   tags: string[];

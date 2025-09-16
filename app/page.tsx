@@ -1,5 +1,5 @@
-import TypingEffect from "./components/TypingEffect";
-// import BlogPosts from "app/components/posts";
+import TypingEffect from "@/components/typing-effect";
+// import BlogPosts from "@/components/posts";
 
 export default function Page() {
   return (

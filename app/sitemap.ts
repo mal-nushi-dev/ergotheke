@@ -1,4 +1,4 @@
-import { fetchBlogFeed } from "app/blog/rss-client";
+import { fetchBlogFeed } from "@/lib/blog/rss-client";
 import fs from "fs";
 import path from "path";
 

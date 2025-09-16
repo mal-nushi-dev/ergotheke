@@ -1,4 +1,4 @@
-import { fetchBlogFeed, BlogPost } from "app/blog/rss-client";
+import { fetchBlogFeed, BlogPost } from "@/lib/blog/rss-client";
 
 /**
  * Server component that fetches and renders a list of external blog posts.

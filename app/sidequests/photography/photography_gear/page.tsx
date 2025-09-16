@@ -1,47 +1,64 @@
 import Link from "next/link";
-
-const photographyGearSubpages = [
-  {
-    name: "Sony DSLR-A300",
-    slug: "sony_dslr_a300",
-    description: "An entry-level DSLR with live view and fast autofocus.",
-  },
-  {
-    name: "Minolta X-370",
-    slug: "minolta_x_370",
-    description: "A classic Japanese 35mm film SLR.",
-  },
-];
+import { safeString } from "@/utils/safe-string";
+import { GearSubpages } from "@/data/sidequests/photography/gear-subpages"; // Subpages defined here
+import { GearCard } from "@/components/gear/gear-card"; // Shows the cards for each gear
 
 export const metadata = {
   title: "My Photography Gear",
   description: "Details about my photography setup and accessories.",
 };
 
-export default function GearPage() {
+/**
+ * GearPage component.
+ *
+ * The main page for displaying a grid of gear items.
+ * It pulls gear data from `GearSubpages` and renders a list of `GearCard` components.
+ * Each card is wrapped in either a Next.js `<Link>` for internal navigation or an `<a>` tag for external links.
+ *
+ * @returns {React.JSX.Element} The rendered gear page containing the gear list.
+ */
+export default function GearPage(): React.JSX.Element {
+  const pageTitle = "My Photography Gear";
+  const pageDescription = "Details about my photography setup and accessories.";
+
   return (
     <section>
       <h1 className="mb-2 text-2xl font-semibold tracking-tighter">
-        {metadata.title}
+        {pageTitle}
       </h1>
       <p className="mb-8 text-neutral-600 dark:text-neutral-400">
-        {metadata.description}
+        {pageDescription}
       </p>
+
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-        {photographyGearSubpages.map((subpage) => (
-          <li key={subpage.slug}>
-            <Link
-              href={`/sidequests/photography/photography_gear/${subpage.slug}`}
-            >
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
-                <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
-                <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
-                  {subpage.description}
-                </p>
-              </div>
-            </Link>
-          </li>
-        ))}
+        {GearSubpages.map((subpage) => {
+          const external = safeString(subpage.externalUrl);
+          const href =
+            external ||
+            `/sidequests/photography/photography_gear/${encodeURIComponent(
+              subpage.slug
+            )}`;
+
+          return (
+            <li key={subpage.slug}>
+              {external ? (
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <GearCard
+                    name={subpage.name}
+                    description={subpage.description}
+                  />
+                </a>
+              ) : (
+                <Link href={href}>
+                  <GearCard
+                    name={subpage.name}
+                    description={subpage.description}
+                  />
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

@@ -1,4 +1,12 @@
-export const languageColors: Record<string, string> = {
+// This file maps programming languages to Tailwind CSS color schemes for consistent styling.
+// This is used in the lab section to color-code projects based on their primary programming language.
+
+import type { SupportedLanguage } from "@/types/supported-languages";
+
+/**
+ * Maps each supported language to a Tailwind CSS color scheme.
+ */
+export const languageColors: Record<SupportedLanguage, string> = {
   AppleScript: "bg-gray-300 text-gray-800",
   TypeScript: "bg-blue-200 text-blue-800",
   JavaScript: "bg-yellow-300 text-yellow-900",

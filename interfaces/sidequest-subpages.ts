@@ -8,7 +8,7 @@
  */
 export interface SidequestSubpage {
   name: string;
-  slug: string;
+  slug?: string;
   description: string;
   externalUrl?: string;
 }

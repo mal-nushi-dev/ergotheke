@@ -1,5 +1,5 @@
 import "./global.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/nav";
@@ -35,18 +35,12 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     other: [
       { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000000" },
     ],
   },
   manifest: "/manifest.json",
-  // themeColor: [
-  //   { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-  //   { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  // ],
   appleWebApp: {
     title: "Mal Nushi",
     capable: true,
@@ -77,6 +71,19 @@ export const metadata: Metadata = {
       "application/rss+xml": `${baseUrl}/rss.xml`,
     },
   },
+};
+
+/**
+ * Viewport configuration for Next.js.
+ * This export controls viewport-related metadata, such as theme colors, which define the browser UI color for light and dark modes.
+ * The `themeColor` property sets the `<meta name="theme-color">` tag, used by mobile browsers and Progressive Web Apps (PWAs)
+ * to determine the browser chrome color depending on the user's color scheme preference.
+ */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 /**

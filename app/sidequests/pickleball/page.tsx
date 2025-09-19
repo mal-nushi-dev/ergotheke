@@ -1,63 +1,30 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { safeString } from "@/utils/safe-string";
+import SidequestPage from "@/components/sidequest-page";
 import PingPongText from "@/components/pickleball-effect";
-import TaggedBlogPosts from "@/components/tagged-blog-posts";
-import { sidequestSubpages } from "@/data/sidequests/pickleball/subpages"; // Subpages defined here
+import { sidequestSubpages } from "@/data/sidequests/pickleball/subpages";
 
-/**
- * Metadata for the Pickleball page. This object is used by Next.js to set the page title and description for SEO and browser display.
- */
 export const metadata: Metadata = {
   title: "Pickleball",
-  description: "My pickleball equipment and favorite courts",
+  description: "My pickleball equipment and favorite courts.",
 };
 
-/**
- * Pickleball page component that displays the main pickleball hub with subpage navigation
- * and pickleball text effect applied to the description.
- * @returns {React.JSX.Element} - Rendered Pickleball page component.
- */
-export default function PickleballPage(): React.JSX.Element {
+export default function PickleballPage() {
   return (
-    <section>
-      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">
-        {metadata.title?.toString() ?? ""}
-      </h1>
-
-      <PingPongText
-        text={metadata.description?.toString() ?? ""}
-        targetWord="courts"
-        targetLetter="o"
-        className="mb-8 text-neutral-600 dark:text-neutral-400"
-      />
-
-      <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-        {sidequestSubpages.map((subpage) => (
-          <li key={subpage.slug}>
-            <Link href={`/sidequests/pickleball/${subpage.slug}`}>
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition cursor-pointer h-full flex flex-col">
-                <h3 className="text-md font-semibold mb-1">{subpage.name}</h3>
-                <p className="text-xs text-neutral-500 dark:text-neutral-300 flex-grow">
-                  {subpage.description}
-                </p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div className="my-8">
-        <h2 className="mb-4 text-xl font-semibold tracking-tight">
-          Blog Posts
-        </h2>
-        <div>
-          <TaggedBlogPosts
-            tags={["pickleball", "pickleball_page"]}
-            // limit={5}
-          />
-        </div>
-      </div>
-    </section>
+    <SidequestPage
+      title={safeString(metadata.title)}
+      description={safeString(metadata.description)}
+      tags={["pickleball", "pickleball_page"]}
+      subpages={sidequestSubpages}
+      baseHref="/sidequests/pickleball"
+      HeroText={
+        <PingPongText
+          text={safeString(metadata.description)}
+          targetWord="courts"
+          targetLetter="o"
+          className="mb-8 text-neutral-600 dark:text-neutral-400"
+        />
+      }
+    />
   );
 }

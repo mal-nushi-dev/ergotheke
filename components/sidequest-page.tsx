@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { safeString } from "@/utils/safe-string";
 import TaggedBlogPosts from "@/components/tagged-blog-posts";
 import { GearCard } from "@/components/gear/gear-card";
 import type { SidequestSubpage } from "@/interfaces/sidequest-subpages";
@@ -42,7 +43,9 @@ export default function SidequestPage({
 }: SidequestPageProps): React.JSX.Element {
   return (
     <section>
-      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">{title}</h1>
+      <h1 className="mb-2 text-2xl font-semibold tracking-tighter">
+        {safeString(title)}
+      </h1>
 
       {HeroText}
 
@@ -50,27 +53,27 @@ export default function SidequestPage({
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8 auto-rows-fr">
         {subpages.map((subpage) => (
-          <li key={subpage.slug} className="h-full">
-            {subpage.externalUrl ? (
+          <li key={safeString(subpage.slug)} className="h-full">
+            {safeString(subpage.externalUrl) ? (
               <a
-                href={subpage.externalUrl}
+                href={safeString(subpage.externalUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block h-full"
               >
                 <GearCard
-                  name={subpage.name}
-                  description={subpage.description}
+                  name={safeString(subpage.name)}
+                  description={safeString(subpage.description)}
                 />
               </a>
             ) : (
               <Link
-                href={`${baseHref}/${subpage.slug}`}
+                href={`${safeString(baseHref)}/${safeString(subpage.slug)}`}
                 className="block h-full"
               >
                 <GearCard
-                  name={subpage.name}
-                  description={subpage.description}
+                  name={safeString(subpage.name)}
+                  description={safeString(subpage.description)}
                 />
               </Link>
             )}

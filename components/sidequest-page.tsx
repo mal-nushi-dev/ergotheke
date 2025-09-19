@@ -21,7 +21,7 @@ export type SidequestPageProps = {
   tags: string[];
   subpages: SidequestSubpage[];
   baseHref: string;
-  HeroText: React.ReactNode;
+  HeroText?: React.ReactNode;
 };
 
 /**

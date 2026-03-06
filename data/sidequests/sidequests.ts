@@ -1,12 +1,12 @@
 import type { Sidequest } from "@/interfaces/sidequest";
 
 export const sidequests: Sidequest[] = [
-  { name: "Skating", emoji: "🛹", slug: "skating" },
-  { name: "Pickleball", emoji: "🏓", slug: "pickleball" },
-  { name: "Photography", emoji: "📷", slug: "photography" },
-  { name: "Legos", emoji: "🧱", slug: "legos" },
-  { name: "Music", emoji: "🎵", slug: "music" },
-  { name: "Keyboards", emoji: "⌨️", slug: "keyboards" },
-  { name: "Travel", emoji: "✈️", slug: "travel" },
-  { name: "Design", emoji: "🎨", slug: "design" },
+  { name: "Skating", slug: "skating" },
+  { name: "Pickleball", slug: "pickleball" },
+  { name: "Photography", slug: "photography" },
+  { name: "Legos", slug: "legos" },
+  { name: "Music", slug: "music" },
+  { name: "Keyboards", slug: "keyboards" },
+  { name: "Travel", slug: "travel" },
+  { name: "Design", slug: "design" },
 ];

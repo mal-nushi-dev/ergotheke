@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { safeString } from "@/utils/safe-string";
 import TaggedBlogPosts from "@/components/tagged-blog-posts";
-import { GearCard } from "@/components/gear/gear-card";
 import type { SidequestSubpage } from "@/interfaces/sidequest-subpages";
 
 /**
@@ -51,35 +50,53 @@ export default function SidequestPage({
 
       <h2 className="mb-4 text-xl font-semibold tracking-tight">Sub-Topics</h2>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8 auto-rows-fr">
-        {subpages.map((subpage) => (
-          <li key={safeString(subpage.slug)} className="h-full">
-            {safeString(subpage.externalUrl) ? (
-              <a
-                href={safeString(subpage.externalUrl)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block h-full"
-              >
-                <GearCard
-                  name={safeString(subpage.name)}
-                  description={safeString(subpage.description)}
-                />
-              </a>
-            ) : (
-              <Link
-                href={`${safeString(baseHref)}/${safeString(subpage.slug)}`}
-                className="block h-full"
-              >
-                <GearCard
-                  name={safeString(subpage.name)}
-                  description={safeString(subpage.description)}
-                />
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="mb-8">
+        {subpages.map((subpage) =>
+          safeString(subpage.externalUrl) ? (
+            <a
+              key={safeString(subpage.slug)}
+              href={safeString(subpage.externalUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mb-4 group"
+            >
+              <div className="flex items-center gap-1">
+                <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                  →
+                </span>
+                <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
+                  {safeString(subpage.name)}
+                </p>
+              </div>
+              {safeString(subpage.description) && (
+                <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
+                  {safeString(subpage.description)}
+                </p>
+              )}
+            </a>
+          ) : (
+            <Link
+              key={safeString(subpage.slug)}
+              href={`${safeString(baseHref)}/${safeString(subpage.slug)}`}
+              className="block mb-4 group"
+            >
+              <div className="flex items-center gap-1">
+                <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                  →
+                </span>
+                <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
+                  {safeString(subpage.name)}
+                </p>
+              </div>
+              {safeString(subpage.description) && (
+                <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
+                  {safeString(subpage.description)}
+                </p>
+              )}
+            </Link>
+          ),
+        )}
+      </div>
 
       <div className="my-8">
         <h2 className="mb-4 text-xl font-semibold tracking-tight">

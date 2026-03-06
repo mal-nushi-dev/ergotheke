@@ -29,34 +29,46 @@ export default function AboutPage() {
         <br></br>
         <br></br>
         You can find some of my passions here:
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-          <Link
-            href="/lab"
-            className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition"
-          >
-            <h3 className="text-md font-semibold mb-1">Lab</h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-300">
+        <div className="my-6">
+          <Link href="/lab" className="block mb-4 group">
+            <div className="flex items-center gap-1">
+              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                →
+              </span>
+              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
+                Lab
+              </p>
+            </div>
+            <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               Where Good Ideas Go to Get Debugged
             </p>
           </Link>
 
-          <Link
-            href="/blog"
-            className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition"
-          >
-            <h3 className="text-md font-semibold mb-1">Blog</h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-300">
+          <Link href="/blog" className="block mb-4 group">
+            <div className="flex items-center gap-1">
+              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                →
+              </span>
+              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
+                Blog
+              </p>
+            </div>
+            <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               A blog by Mal Nushi—
               <i>where ideas wander from circuits to sentences</i>
             </p>
           </Link>
 
-          <Link
-            href="/sidequests"
-            className="bg-white dark:bg-slate-800 rounded-xl shadow p-4 hover:bg-blue-50 dark:hover:bg-gray-700 transition"
-          >
-            <h3 className="text-md font-semibold mb-1">Sidequests</h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-300">
+          <Link href="/sidequests" className="block mb-4 group">
+            <div className="flex items-center gap-1">
+              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                →
+              </span>
+              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
+                Sidequests
+              </p>
+            </div>
+            <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               Because not everything has to compile
             </p>
           </Link>

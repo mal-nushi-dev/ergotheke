@@ -4,10 +4,6 @@ export default function SidequestUnderConstruction() {
       <h1 className="mb-4 text-2xl font-semibold tracking-tighter">
         I am currently building this page.
       </h1>
-      <p className="text-center text-gray-600 dark:text-neutral-100">
-        Please do not rush me.
-        <br />
-      </p>
     </section>
   );
 }

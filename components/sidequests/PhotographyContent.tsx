@@ -1,40 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Sidequest } from "@/interfaces/sidequest";
-import TypingEffect from "@/components/typing-effect";
-
-export const metadata = {
-  title: "Sidequests",
-  description: "Because not everything has to compile",
-};
 
 const sidequestPages: Sidequest[] = [
   {
-    name: "Music",
-    slug: "music",
-    imagePath: "/images/music.png",
-  },
-  {
-    name: "Photography",
-    slug: "photography",
-    imagePath: "/images/photography.png",
-  },
-  {
-    name: "Travel",
-    slug: "travel",
-    imagePath: "/images/travel.png",
-  },
-  {
-    name: "Writing",
-    slug: "writing",
-    imagePath: "/images/writing.png",
+    name: "Instagram",
+    slug: "https://www.instagram.com/malspixelempire/",
+    imagePath: "/images/instagram.jpeg",
   },
 ];
 
 function SidequestCard({ page }: { page: Sidequest }) {
+  // Determine if the link is external so we can open it in a new tab
+  const isExternal = page.slug.startsWith("http");
+  const href = isExternal ? page.slug : `/sidequests/${page.slug}`;
+
   return (
     <Link
-      href={`/sidequests/${page.slug}`}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative block w-full mb-6 rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
     >
       <Image
@@ -58,21 +43,29 @@ function SidequestCard({ page }: { page: Sidequest }) {
   );
 }
 
-export default function SidequestsPage() {
+export default function PhotographyContent() {
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        {metadata.title}
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
-        {metadata.description.split("compile")[0]}
-        <TypingEffect text="compile" />
-      </h2>
-      <div>
+    <>
+      <article className="prose">
+        <p>
+          I have a DSLR, but since I always carry my phone with me, I tend to
+          take more pictures using my iPhone 15 Plus.
+        </p>
+        <p>
+          I take photos for fun. Usually I capture whatever catches my eye
+          during the day (which is usually architecture) and do some edits
+          through either my phone or through my computer.
+        </p>
+        <p>
+          I plan on uploading the pictures here through Instagram's API, but
+          until then, here is a link to my Instagram page:
+        </p>
+      </article>
+      <div className="mt-8">
         {sidequestPages.map((page) => (
           <SidequestCard key={page.slug} page={page} />
         ))}
       </div>
-    </section>
+    </>
   );
 }

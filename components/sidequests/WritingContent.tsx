@@ -1,40 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Sidequest } from "@/interfaces/sidequest";
-import TypingEffect from "@/components/typing-effect";
-
-export const metadata = {
-  title: "Sidequests",
-  description: "Because not everything has to compile",
-};
 
 const sidequestPages: Sidequest[] = [
   {
-    name: "Music",
-    slug: "music",
-    imagePath: "/images/music.png",
-  },
-  {
-    name: "Photography",
-    slug: "photography",
-    imagePath: "/images/photography.png",
-  },
-  {
-    name: "Travel",
-    slug: "travel",
-    imagePath: "/images/travel.png",
-  },
-  {
-    name: "Writing",
-    slug: "writing",
-    imagePath: "/images/writing.png",
+    name: "Kodikion.",
+    slug: "https://kodikion.substack.com",
+    imagePath: "/images/kodikion.webp",
   },
 ];
 
 function SidequestCard({ page }: { page: Sidequest }) {
+  // Determine if the link is external so we can open it in a new tab
+  const isExternal = page.slug.startsWith("http");
+  const href = isExternal ? page.slug : `/sidequests/${page.slug}`;
+
   return (
     <Link
-      href={`/sidequests/${page.slug}`}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative block w-full mb-6 rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
     >
       <Image
@@ -58,21 +43,30 @@ function SidequestCard({ page }: { page: Sidequest }) {
   );
 }
 
-export default function SidequestsPage() {
+export default function WritingContent() {
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        {metadata.title}
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
-        {metadata.description.split("compile")[0]}
-        <TypingEffect text="compile" />
-      </h2>
-      <div>
+    <>
+      <article className="prose">
+        <p>I absolutely love writing and sharing my thoughts.</p>
+        <p>
+          I haver a blog in Substack called, Kodikion. On that blog, I try to
+          focus on tech topics since it is a huge passion of mine. From time to
+          time I might drift and write about something else that piques my
+          interest.
+        </p>
+        <p>
+          My biggest influences in writing come from The Verge & The New Yorker.
+          Fun fact, the artwork (which is AI generated if you haven't noticed)
+          is influenced by the visual style of The New Yorker. At least the idea
+          of it.
+        </p>
+        <p>You can visit my blog below:</p>
+      </article>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {sidequestPages.map((page) => (
           <SidequestCard key={page.slug} page={page} />
         ))}
       </div>
-    </section>
+    </>
   );
 }

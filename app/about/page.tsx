@@ -32,12 +32,8 @@ export default function AboutPage() {
         <div className="my-6">
           <Link href="/lab" className="block mb-4 group">
             <div className="flex items-center gap-1">
-              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                →
-              </span>
-              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
-                Lab
-              </p>
+              <span className="body-links">→</span>
+              <p className="body-links">Lab</p>
             </div>
             <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               Where Good Ideas Go to Get Debugged
@@ -46,12 +42,8 @@ export default function AboutPage() {
 
           <Link href="/blog" className="block mb-4 group">
             <div className="flex items-center gap-1">
-              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                →
-              </span>
-              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
-                Blog
-              </p>
+              <span className="body-links">→</span>
+              <p className="body-links">Blog</p>
             </div>
             <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               A blog by Mal Nushi—
@@ -61,12 +53,8 @@ export default function AboutPage() {
 
           <Link href="/sidequests" className="block mb-4 group">
             <div className="flex items-center gap-1">
-              <span className="text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                →
-              </span>
-              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
-                Sidequests
-              </p>
+              <span className="body-links">→</span>
+              <p className="body-links">Sidequests</p>
             </div>
             <p className="ml-4 text-sm text-neutral-500 dark:text-neutral-400">
               Because not everything has to compile

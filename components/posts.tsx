@@ -40,9 +40,7 @@ export default async function BlogPosts(): Promise<JSX.Element> {
               <p className="text-neutral-600 dark:text-neutral-400 min-w-[100px] flex-shrink-0 tabular-nums">
                 {new Date(post.date).toLocaleDateString()}
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 tracking-tight">
-                {post.title}
-              </p>
+              <p className="body-links">{post.title}</p>
             </div>
           </a>
         ))

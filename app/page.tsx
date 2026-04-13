@@ -1,5 +1,10 @@
 import TypingEffect from "@/components/typing-effect";
-// import BlogPosts from "@/components/posts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Mal Nushi's personal website and portfolio.",
+};
 
 export default function Page() {
   return (
@@ -8,12 +13,13 @@ export default function Page() {
       <h2 className="page-subheading">
         <TypingEffect text="$whoami" />
       </h2>
-      <p className="mb-4">
-        <br />A software engineer at Ally Financial, building user interfaces
-        and APIs for the Ally Customer Master application. Curious by nature,
-        precise by practice, and always developing with purpose.
-      </p>
-      <div className="my-8">{/* <BlogPosts /> */}</div>
+      <article className="prose">
+        <p>
+          A software engineer at Ally Financial, building user interfaces and
+          APIs for the Ally Customer Master application. Curious by nature,
+          precise by practice, and always developing with purpose.
+        </p>
+      </article>
     </section>
   );
 }

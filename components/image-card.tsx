@@ -23,7 +23,7 @@ export default function ImageCard({
       href={href}
       target={target}
       rel={rel}
-      className="group relative block w-full mb-6 rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
+      className="group relative block w-full rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
     >
       <Image
         src={imageSrc}

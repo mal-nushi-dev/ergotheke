@@ -27,7 +27,7 @@ export default function PhotographyContent() {
           until then, here is a link to my Instagram page:
         </p>
       </article>
-      <div className="mt-8">
+      <div className="mt-8 flex flex-col gap-6">
         {sidequestPages.map((page) => {
           const isExternal = page.slug.startsWith("http");
           return (

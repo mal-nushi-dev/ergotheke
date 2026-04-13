@@ -1,71 +1,60 @@
-import { fetchBlogFeed } from "@/lib/blog/rss-client";
 import fs from "fs";
 import path from "path";
-
-export const baseUrl: string =
-  process.env.NODE_ENV === "production"
-    ? "https://www.malnushi.com"
-    : "http://localhost:3000";
+import { sidequestPages } from "@/data/sidequests";
+import { baseUrl } from "@/lib/site";
 
 /**
- * Generates sitemap entries for static routes and blog posts.
- * This function is used by Next.js to create a sitemap for SEO.
- * @returns {Promise<Array<{ url: string; lastModified: string }>>}
- *   An array of objects representing sitemap entries.
+ * Recursively crawls the app directory to find all static page.tsx files.
  */
-export default async function sitemap(): Promise<
-  Array<{ url: string; lastModified: string }>
-> {
-  // Fetch all blog posts from the RSS client
-  const blogPosts = await fetchBlogFeed();
+function getStaticRoutes(dir: string, currentPath = ""): string[] {
+  let routes: string[] = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-  // Map blog posts to sitemap entry objects
-  const blogs = blogPosts.map((post) => ({
-    url: post.link,
-    lastModified: new Date(post.date).toISOString().split("T")[0],
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      // Ignore dynamic routes (e.g., [slug]), api routes, and private folders
+      if (
+        entry.name.startsWith("[") ||
+        entry.name === "api" ||
+        entry.name.startsWith("_")
+      ) {
+        continue;
+      }
+
+      // Handle Route Groups (e.g., "(marketing)") by ignoring the folder name in the URL
+      if (entry.name.startsWith("(")) {
+        routes = routes.concat(
+          getStaticRoutes(path.join(dir, entry.name), currentPath),
+        );
+        continue;
+      }
+
+      const nextPath = `${currentPath}/${entry.name}`;
+      routes = routes.concat(
+        getStaticRoutes(path.join(dir, entry.name), nextPath),
+      );
+    } else if (entry.isFile() && entry.name === "page.tsx") {
+      routes.push(currentPath === "" ? "/" : currentPath);
+    }
+  }
+  return routes;
+}
+
+export default async function sitemap() {
+  // 1. Auto-discover all static pages in the app/ directory
+  const appDir = path.join(process.cwd(), "app");
+  const staticPaths = getStaticRoutes(appDir);
+
+  const staticRoutes = staticPaths.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  // Define static routes
-  const routes = ["", "/blog", "/about", "/lab", "/sidequests"].map(
-    (route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date().toISOString().split("T")[0],
-    })
-  );
+  // 2. Get dynamic sidequests from our data source
+  const sideQuestRoutes = sidequestPages.map((page) => ({
+    url: `${baseUrl}/sidequests/${page.slug}`,
+    lastModified: new Date().toISOString().split("T")[0],
+  }));
 
-  /**
-   * Recursively walks a directory to find all "page.tsx" files
-   * and returns their route paths (relative to /sidequests).
-   * @param dir - Absolute path to the directory to scan.
-   * @param segment - Accumulated route segment (used in recursion).
-   * @returns Array of route segments (e.g., "/skating", "/pickleball/foo").
-   */
-  function getSidequestRoutes(dir: string, segment = ""): string[] {
-    let routes: string[] = [];
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const entryPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        const nestedSegment = `${segment}/${entry.name}`;
-        routes = routes.concat(getSidequestRoutes(entryPath, nestedSegment));
-      } else if (entry.isFile() && entry.name === "page.tsx") {
-        routes.push(segment || "/");
-      }
-    }
-    return routes;
-  }
-
-  // Compute all sidequest-derived routes under app/sidequests
-  const sideQuestDir = path.join(process.cwd(), "app", "sidequests");
-  const rawSegments = getSidequestRoutes(sideQuestDir);
-  const sideQuestRoutes = rawSegments.map((seg) => {
-    // Ensure leading slash for segment, then prefix "/sidequests"
-    const route = seg === "/" ? "/sidequests" : `/sidequests${seg}`;
-    return {
-      url: `${baseUrl}${route}`,
-      lastModified: new Date().toISOString().split("T")[0],
-    };
-  });
-
-  return [...routes, ...blogs, ...sideQuestRoutes];
+  return [...staticRoutes, ...sideQuestRoutes];
 }

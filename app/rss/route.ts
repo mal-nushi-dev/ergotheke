@@ -1,4 +1,4 @@
-import { baseUrl } from "app/sitemap";
+import { baseUrl } from "@/lib/site";
 import { fetchBlogFeed } from "@/lib/blog/rss-client";
 
 /**
@@ -28,7 +28,7 @@ export async function GET(): Promise<Response> {
           <link>${post.link}</link>
           <description>${post.contentSnippet || ""}</description>
           <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-        </item>`
+        </item>`,
     )
     .join("\n");
 

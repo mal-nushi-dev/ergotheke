@@ -45,9 +45,10 @@ export default async function sitemap() {
   const appDir = path.join(process.cwd(), "app");
   const staticPaths = getStaticRoutes(appDir);
 
+  const lastModified = new Date().toISOString().split("T")[0];
   const staticRoutes = staticPaths.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
+    lastModified,
   }));
 
   // 2. Get dynamic sidequests from our data source

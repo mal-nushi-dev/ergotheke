@@ -8,7 +8,8 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">About Me</h1>
+      <h1 className="page-heading">{metadata.title}</h1>
+      <h2 className="page-subheading">{metadata.description}</h2>
       <div className="mb-4">
         I thought of using AI for this, because honestly I think it is difficult
         describing yourself. I can't be the only one who thinks this, right? So

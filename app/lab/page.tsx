@@ -10,10 +10,8 @@ export const metadata = {
 export default function LabPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        {metadata.title}
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
+      <h1 className="page-heading">{metadata.title}</h1>
+      <h2 className="page-subheading">
         {metadata.description.split("Debugged")[0]}
         <TypingEffect text="Debugged" />
       </h2>

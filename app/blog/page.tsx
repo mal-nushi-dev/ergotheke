@@ -66,10 +66,8 @@ export const metadata: Metadata = {
 export default function Page(): JSX.Element {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        Kodikion.
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
+      <h1 className="page-heading">Kodikion.</h1>
+      <h2 className="page-subheading">
         A blog by Mal Nushi—
         <i>where ideas wander from circuits to sentences.</i>
       </h2>

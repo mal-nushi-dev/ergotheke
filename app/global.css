@@ -153,6 +153,14 @@ table {
 }
 
 @layer components {
+  .page-heading {
+    @apply font-semibold text-2xl mb-2 tracking-tighter;
+  }
+
+  .page-subheading {
+    @apply font-semibold text-lg mb-8 tracking-tight;
+  }
+
   .body-links {
     @apply 
       font-normal

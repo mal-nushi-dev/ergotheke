@@ -61,10 +61,8 @@ function SidequestCard({ page }: { page: Sidequest }) {
 export default function SidequestsPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        {metadata.title}
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
+      <h1 className="page-heading">{metadata.title}</h1>
+      <h2 className="page-subheading">
         {metadata.description.split("compile")[0]}
         <TypingEffect text="compile" />
       </h2>

@@ -4,11 +4,11 @@ import TypingEffect from "@/components/typing-effect";
 export default function Page() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Mal Nushi
-      </h1>
-      <p className="mb-4">
+      <h1 className="page-heading">Mal Nushi</h1>
+      <h2 className="page-subheading">
         <TypingEffect text="$whoami" />
+      </h2>
+      <p className="mb-4">
         <br />A software engineer at Ally Financial, building user interfaces
         and APIs for the Ally Customer Master application. Curious by nature,
         precise by practice, and always developing with purpose.

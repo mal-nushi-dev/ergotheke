@@ -16,7 +16,7 @@ const parser: Parser<{}, BlogPost> = new Parser();
 /**
  * Fetches and parses blog posts from the external Kodikion RSS feed.
  *
- * Uses `rss-parser` to retrieve and parse the feed at https://www.kodikion.com/rss.xml.
+ * Uses `fetch` to retrieve the feed at https://kodikion.substack.com/feed and `rss-parser` to parse the XML.
  * Each feed item is normalized to ensure a `date` field is present, falling back to `pubDate` if needed.
  * If an error occurs during fetch or parsing, the function logs the error and returns an empty array.
  *

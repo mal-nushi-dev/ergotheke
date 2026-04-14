@@ -11,7 +11,7 @@ export default function Page() {
     <section>
       <h1 className="page-heading">Mal Nushi</h1>
       <h2 className="page-subheading">
-        <TypingEffect text="$whoami" />
+        <TypingEffect text="$ cd ~" />
       </h2>
       <article className="prose">
         <p>

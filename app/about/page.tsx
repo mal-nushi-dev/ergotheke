@@ -1,9 +1,10 @@
 import Link from "next/link";
+import TypingEffect from "@/components/typing-effect";
 import { Metadata } from "next";
 import type { ReactNode } from "react";
 
 const title = "About Me";
-const description = "Learn about Mal Nushi";
+const description = "About Mal Nushi.";
 
 export const metadata: Metadata = {
   title,
@@ -42,7 +43,9 @@ export default function AboutPage() {
   return (
     <section>
       <h1 className="page-heading">{title}</h1>
-      <h2 className="page-subheading">{description}</h2>
+      <h2 className="page-subheading">
+        <TypingEffect text="$ whoami" />
+      </h2>
       <article className="prose">
         <p>
           I thought of using AI for this, because honestly I think it is

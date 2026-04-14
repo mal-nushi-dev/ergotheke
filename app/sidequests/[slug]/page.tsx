@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import MusicContent from "@/components/sidequests/MusicContent";
 import PhotographyContent from "@/components/sidequests/PhotographyContent";
 import TravelContent from "@/components/sidequests/TravelContent";
@@ -10,9 +11,9 @@ const sidequestData: Record<
   string,
   {
     title: string;
-    description: React.ReactNode;
+    description: ReactNode;
     metaDescription: string;
-    content: React.ReactNode;
+    content: ReactNode;
   }
 > = {
   music: {

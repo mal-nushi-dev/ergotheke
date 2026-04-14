@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
+import TypingEffect from "@/components/typing-effect";
 import { fetchBlogFeed, BlogPost } from "@/lib/blog/rss-client";
 
-const title = "Kodikion.";
-const description =
-  "A blog by Mal Nushi—where ideas wander from circuits to sentences.";
+const title = "Blog";
+const description = "Blog posts written by Mal Nushi.";
 
 // Revalidate the page every 3600 seconds (1 hour) so new blog posts appear automatically
 export const revalidate = 3600;
@@ -50,7 +50,7 @@ async function BlogPosts() {
             className="block group"
           >
             <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-2">
-              <p className="body-subtext min-w-[100px] flex-shrink-0 tabular-nums">
+              <p className="body-subtext min-w-25 shrink-0 tabular-nums">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
@@ -77,7 +77,7 @@ export default function Page() {
     <section>
       <h1 className="page-heading">{title}</h1>
       <h2 className="page-subheading">
-        {description.split("—")[0]}—<i>{description.split("—")[1]}</i>
+        <TypingEffect text="$ ls ./blog" />
       </h2>
       <Suspense
         fallback={

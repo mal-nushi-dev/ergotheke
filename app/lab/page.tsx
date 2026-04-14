@@ -4,7 +4,7 @@ import TypingEffect from "@/components/typing-effect";
 import { Metadata } from "next";
 
 const title = "Lab";
-const description = "Where Good Ideas Go to Get Debugged";
+const description = "List of repositories maintained by Mal Nushi.";
 
 export const metadata: Metadata = {
   title,
@@ -16,8 +16,7 @@ export default function LabPage() {
     <section>
       <h1 className="page-heading">{title}</h1>
       <h2 className="page-subheading">
-        {description.split("Debugged")[0]}
-        <TypingEffect text="Debugged" />
+        <TypingEffect text="$ ls ./projects" />
       </h2>
       <ul className="flex flex-col gap-4">
         {repositories.map((repo) => (

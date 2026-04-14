@@ -35,7 +35,7 @@ export default function ImageCard({
       {/* Dark overlay that fades in on hover to simulate the opacity change smoothly */}
       <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
       {/* Gradual blur and gradient overlay */}
-      <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-md [-webkit-mask-image:linear-gradient(to_top,black,transparent)] [mask-image:linear-gradient(to_top,black,transparent)]" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent backdrop-blur-md [-webkit-mask-image:linear-gradient(to_top,black,transparent)] mask-[linear-gradient(to_top,black,transparent)]" />
       {/* Text layer */}
       <div className="absolute bottom-0 w-full p-4">
         <span className="text-white font-bold text-xl tracking-tight">

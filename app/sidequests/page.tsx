@@ -4,7 +4,7 @@ import { sidequestPages } from "@/data/sidequests";
 import { Metadata } from "next";
 
 const title = "Sidequests";
-const description = "Because not everything has to compile";
+const description = "Hobbies and other projects by Mal Nushi.";
 
 export const metadata: Metadata = {
   title,
@@ -16,8 +16,7 @@ export default function SidequestsPage() {
     <section>
       <h1 className="page-heading">{title}</h1>
       <h2 className="page-subheading">
-        {description.split("compile")[0]}
-        <TypingEffect text="compile" />
+        <TypingEffect text="$ ls ./sidequests" />
       </h2>
       <div className="flex flex-col gap-6">
         {sidequestPages.map((page) => (

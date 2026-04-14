@@ -41,7 +41,7 @@ export default function ScribbleEffect({ text }: { text: string }) {
               ? "scale-50 opacity-0"
               : `scale-100 opacity-100 ${
                   isEven ? "-translate-y-1" : "translate-y-1"
-                } -rotate-340`
+                } rotate-20`
           }`}
         >
           ✍🏻

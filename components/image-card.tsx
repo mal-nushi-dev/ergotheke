@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import MediaCard from "@/components/media-card";
 
 interface ImageCardProps {
   href: string;
@@ -8,6 +7,7 @@ interface ImageCardProps {
   title: string;
   target?: string;
   rel?: string;
+  imagePriority?: boolean;
 }
 
 export default function ImageCard({
@@ -17,31 +17,22 @@ export default function ImageCard({
   title,
   target,
   rel,
+  imagePriority,
 }: ImageCardProps) {
   return (
-    <Link
+    <MediaCard
       href={href}
+      imageSrc={imageSrc}
+      altText={altText}
+      title={title}
       target={target}
       rel={rel}
-      className="group relative block w-full rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
-    >
-      <Image
-        src={imageSrc}
-        alt={altText}
-        width={800}
-        height={400}
-        className="w-full h-48 object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-      />
-      {/* Dark overlay that fades in on hover to simulate the opacity change smoothly */}
-      <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
-      {/* Gradual blur and gradient overlay */}
-      <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-black/50 to-transparent backdrop-blur-md [-webkit-mask-image:linear-gradient(to_top,black,transparent)] mask-[linear-gradient(to_top,black,transparent)]" />
-      {/* Text layer */}
-      <div className="absolute bottom-0 w-full p-4">
-        <span className="text-white font-bold text-xl tracking-tight">
-          {title}
-        </span>
-      </div>
-    </Link>
+      imagePriority={imagePriority}
+      imageWidth={800}
+      imageHeight={400}
+      cardClassName="w-full"
+      imageClassName="w-full h-48"
+      titleClassName="text-xl"
+    />
   );
 }

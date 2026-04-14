@@ -5,7 +5,7 @@ const sidequestPages: Sidequest[] = [
   {
     name: "Instagram",
     slug: "https://www.instagram.com/malspixelempire/",
-    imagePath: "/images/instagram.jpeg",
+    imagePath: "/images/instagram.webp",
   },
 ];
 

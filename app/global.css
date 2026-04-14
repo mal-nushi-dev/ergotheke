@@ -165,14 +165,35 @@ table {
     @apply 
       font-normal
       tracking-tight 
-      transition-all 
+      transition-all
       hover:text-green-600 
       dark:hover:text-green-400 
-      group-hover:text-green-600 
+      group-hover:text-green-900 
       dark:group-hover:text-green-400;
   }
 
   .body-subtext {
-    @apply text-sm text-neutral-500 dark:text-neutral-400;
+    @apply
+    text-sm
+    text-neutral-500
+    dark:text-neutral-400;
+  }
+
+  .surface-card {
+    @apply
+    bg-neutral-100
+    dark:bg-neutral-800
+    border
+    border-neutral-200
+    dark:border-neutral-800;
+  }
+
+  .muted-link {
+    @apply
+    transition-all
+    text-neutral-600
+    dark:text-neutral-400
+    hover:text-neutral-900
+    dark:hover:text-neutral-100;
   }
 }

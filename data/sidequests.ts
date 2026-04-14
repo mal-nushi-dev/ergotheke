@@ -4,21 +4,21 @@ export const sidequestPages: Sidequest[] = [
   {
     name: "Music",
     slug: "music",
-    imagePath: "/images/music.png",
+    imagePath: "/images/music.webp",
   },
   {
     name: "Photography",
     slug: "photography",
-    imagePath: "/images/photography.png",
+    imagePath: "/images/photography.webp",
   },
   {
     name: "Travel",
     slug: "travel",
-    imagePath: "/images/travel.png",
+    imagePath: "/images/travel.webp",
   },
   {
     name: "Writing",
     slug: "writing",
-    imagePath: "/images/writing.png",
+    imagePath: "/images/writing.webp",
   },
 ];

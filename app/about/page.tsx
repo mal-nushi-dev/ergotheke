@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 const title = "About Me";
 const description = "Learn about Mal Nushi";

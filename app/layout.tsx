@@ -1,16 +1,14 @@
 import "./global.css";
 import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/footer";
-import { baseUrl } from "./sitemap";
 import { PersonJsonLd } from "@/components/seo/json-ld";
-
-const siteTitle: string = "Mal Nushi";
-const siteDescription: string = "Mal Nushis Personal Website";
+import { baseUrl, siteDescription, siteTitle } from "@/lib/site";
 
 /**
  * Metadata configuration for Next.js pages.
@@ -92,43 +90,40 @@ export const viewport: Viewport = {
  * @param {...(string | false | null | undefined)} classes - A list of class name values.
  * @returns {string} A space-separated string of all truthy class names.
  */
-const cx = (...classes) => classes.filter(Boolean).join(" ");
+const cx = (...classes: (string | false | null | undefined)[]) =>
+  classes.filter(Boolean).join(" ");
 
 /**
  * RootLayout component: wraps all pages with global HTML structure and shared UI elements.
  * It sets the `<html>` `lang` attribute, applies global font classes, and ensures
  * that every page includes a Navbar, Footer, Analytics, and Speed Insights.
  * @param {RootLayoutProps} props - Component properties.
- * @param {React.ReactNode} props.children - Content to render inside the layout.
- * @returns {JSX.Element} The complete HTML layout for each page.
+ * @param {ReactNode} props.children - Content to render inside the layout.
+ * @returns The complete HTML layout for each page.
  */
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
       className={cx(
         "text-black bg-white dark:text-white dark:bg-black",
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+        <div className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
-          {children}
+          <main className="flex flex-col flex-auto">{children}</main>
           <Footer />
-          <Analytics />
-          <SpeedInsights />
-          <PersonJsonLd
-            name="Mal Nushi"
-            description={siteDescription}
-            url={baseUrl}
-          />
-        </main>
+        </div>
+        <Analytics />
+        <SpeedInsights />
+        <PersonJsonLd
+          name="Mal Nushi"
+          description={siteDescription}
+          url={baseUrl}
+        />
       </body>
     </html>
   );

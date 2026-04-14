@@ -1,28 +1,43 @@
-import Link from "next/link";
+"use client";
 
-const navItems = {
-  "/": { name: "home" },
-  "/about": { name: "about" },
-  "/lab": { name: "lab" },
-  "/blog": { name: "blog" },
-  "/sidequests": { name: "sidequests" },
-};
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navItems = [
+  { path: "/", name: "home" },
+  { path: "/about", name: "about" },
+  { path: "/lab", name: "lab" },
+  { path: "/blog", name: "blog" },
+  { path: "/sidequests", name: "sidequests" },
+];
 
 export function Navbar() {
+  const pathname = usePathname() || "/";
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
+    <aside className="-ml-2 mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+          className="flex items-start relative fade md:overflow-auto scroll-pr-6"
           id="nav"
+          aria-label="Main Navigation"
         >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
+          <div className="flex pr-10">
+            {navItems.map(({ path, name }) => {
+              // Highlight the home path strictly if it's "/", otherwise highlight if the pathname starts with the sub-path (e.g., nested blog routes)
+              const isActive =
+                path === "/" ? pathname === "/" : pathname.startsWith(path);
+
               return (
                 <Link
                   key={path}
                   href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+                  aria-current={isActive ? "page" : undefined}
+                  className={`transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex items-center relative py-1 px-2 m-1 ${
+                    isActive
+                      ? "font-semibold text-neutral-800 dark:text-neutral-200"
+                      : "text-neutral-500 dark:text-neutral-400"
+                  }`}
                 >
                   {name}
                 </Link>

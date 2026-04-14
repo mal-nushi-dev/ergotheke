@@ -1,23 +1,24 @@
 import { repositories } from "@/data/repositories";
 import { languageColors } from "@/data/language-colors";
 import TypingEffect from "@/components/typing-effect";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Lab",
-  description: "Where Good Ideas Go to Get Debugged",
+const title = "Lab";
+const description = "List of repositories maintained by Mal Nushi.";
+
+export const metadata: Metadata = {
+  title,
+  description,
 };
 
 export default function LabPage() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        {metadata.title}
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
-        {metadata.description.split("Debugged")[0]}
-        <TypingEffect text="Debugged" />
+      <h1 className="page-heading">{title}</h1>
+      <h2 className="page-subheading">
+        <TypingEffect text="$ ls ./projects" />
       </h2>
-      <ul className="space-y-4">
+      <ul className="flex flex-col gap-4">
         {repositories.map((repo) => (
           <li key={repo.url}>
             <a
@@ -27,13 +28,14 @@ export default function LabPage() {
               className="block group"
             >
               <div className="flex items-center gap-2">
-                <p className="body-links">{repo.name}</p>
+                <span className="body-links">{repo.name}</span>
                 <div className="flex flex-wrap gap-1">
                   {repo.languages.map((lang) => (
                     <span
                       key={lang}
                       className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-extrabold ${
-                        languageColors[lang] || "bg-gray-200 text-gray-800"
+                        languageColors[lang] ||
+                        "bg-neutral-200 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
                       }`}
                     >
                       {lang}
@@ -41,9 +43,7 @@ export default function LabPage() {
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
-                {repo.description}
-              </p>
+              <p className="mt-1 body-subtext">{repo.description}</p>
             </a>
           </li>
         ))}

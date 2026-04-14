@@ -1,4 +1,13 @@
-export const repositories = [
+import type { SupportedLanguage } from "@/types/supported-languages";
+
+export interface Repository {
+  name: string;
+  url: string;
+  description: string;
+  languages: SupportedLanguage[];
+}
+
+export const repositories: Repository[] = [
   {
     name: "Data Reconciliation",
     url: "https://github.com/mal-nushi-dev/data_reconciliation",

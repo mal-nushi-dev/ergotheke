@@ -1,4 +1,4 @@
-import { baseUrl } from "app/sitemap";
+import { baseUrl } from "@/lib/site";
 
 /**
  * Generates the robots.txt configuration for the site.

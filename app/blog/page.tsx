@@ -1,5 +1,18 @@
+import { Suspense } from "react";
 import { Metadata } from "next";
+import TypingEffect from "@/components/typing-effect";
 import { fetchBlogFeed, BlogPost } from "@/lib/blog/rss-client";
+
+const title = "Blog";
+const description = "Blog posts written by Mal Nushi.";
+
+// Revalidate the page every 3600 seconds (1 hour) so new blog posts appear automatically
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title,
+  description,
+};
 
 /**
  * Server component that fetches and renders a list of external blog posts.
@@ -8,9 +21,9 @@ import { fetchBlogFeed, BlogPost } from "@/lib/blog/rss-client";
  * Displays a fallback message if no posts are returned or if fetching fails.
  * Each blog post is rendered with a date and title, linking to the original post.
  *
- * @returns {JSX.Element} A rendered list of blog posts or a fallback message.
+ * @returns A rendered list of blog posts or a fallback message.
  */
-async function BlogPosts(): Promise<JSX.Element> {
+async function BlogPosts() {
   // Explicitly type the posts variable
   let posts: BlogPost[] = [];
 
@@ -22,9 +35,9 @@ async function BlogPosts(): Promise<JSX.Element> {
 
   // Render fallback message if no posts, otherwise map over and display each post
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {posts.length === 0 ? (
-        <p className="text-neutral-500">
+        <p className="body-subtext">
           No blog posts found or failed to load feed ☹
         </p>
       ) : (
@@ -34,13 +47,18 @@ async function BlogPosts(): Promise<JSX.Element> {
             href={post.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block mb-4 group"
+            className="block group"
           >
-            <div className="flex flex-col md:flex-row md:items-baseline space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 min-w-[100px] flex-shrink-0 tabular-nums">
-                {new Date(post.date).toLocaleDateString()}
+            <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-2">
+              <p className="body-subtext min-w-25 shrink-0 tabular-nums">
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                  timeZone: "UTC",
+                })}
               </p>
-              <p className="body-links">{post.title}</p>
+              <span className="body-links">{post.title}</span>
             </div>
           </a>
         ))
@@ -50,30 +68,26 @@ async function BlogPosts(): Promise<JSX.Element> {
 }
 
 /**
- * Metadata for the blog page.
- */
-export const metadata: Metadata = {
-  title: "Kodikion.",
-  description:
-    "A blog by Mal Nushi—where ideas wander from circuits to sentences.",
-};
-
-/**
  * Blog page component.
  *
- * @returns {JSX.Element} The rendered blog page.
+ * @returns The rendered blog page.
  */
-export default function Page(): JSX.Element {
+export default function Page() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-2 tracking-tighter">
-        Kodikion.
-      </h1>
-      <h2 className="font-semibold text-lg mb-8 tracking-tight">
-        A blog by Mal Nushi—
-        <i>where ideas wander from circuits to sentences.</i>
+      <h1 className="page-heading">{title}</h1>
+      <h2 className="page-subheading">
+        <TypingEffect text="$ ls ./blog" />
       </h2>
-      <BlogPosts />
+      <Suspense
+        fallback={
+          <p className="text-neutral-500 animate-pulse">
+            Loading latest posts...
+          </p>
+        }
+      >
+        <BlogPosts />
+      </Suspense>
     </section>
   );
 }

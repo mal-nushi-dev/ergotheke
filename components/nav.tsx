@@ -33,10 +33,10 @@ export function Navbar() {
                   key={path}
                   href={path}
                   aria-current={isActive ? "page" : undefined}
-                  className={`transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex items-center relative py-1 px-2 m-1 ${
+                  className={`flex items-center relative py-1 px-2 m-1 ${
                     isActive
-                      ? "font-semibold text-neutral-800 dark:text-neutral-200"
-                      : "text-neutral-500 dark:text-neutral-400"
+                      ? "font-semibold text-neutral-800 dark:text-neutral-100"
+                      : "muted-link"
                   }`}
                 >
                   {name}

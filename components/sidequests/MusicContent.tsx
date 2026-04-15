@@ -17,7 +17,7 @@ export default function MusicContent() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {albumsData.map((album) => (
-          <AlbumCard key={album.title} album={album} />
+          <AlbumCard key={album.slug} album={album} />
         ))}
       </div>
     </>

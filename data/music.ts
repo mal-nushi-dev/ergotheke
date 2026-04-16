@@ -21,7 +21,7 @@ export const albumsData: Album[] = [
     slug: "paul-mccartney-cover-album",
     title: "Paul McCartney Cover Album",
     description: "A tribute to Sir Paul's greatest Beatles tracks.",
-    coverImagePath: "/images/paulMccartneyCoverAlbum.webp",
+    coverImagePath: "/images/paulMcCartneyCoverAlbum.webp",
     releaseYear: "Coming Soon",
     tracks: [
       { title: "Yesterday", isComplete: false },
